@@ -1,0 +1,95 @@
+body{
+    background-image: url("../imgs/FondoBlanco.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header{
+    width: 100vw;
+    background-color: #9E2E21;
+    background: -webkit-linear-gradient(to right,#9e2e21, #e24331);
+    background: linear-gradient(to right,#9e2e21, #e24331);
+    color: #fff;
+    font-weight: bold;
+}
+
+.card-header{
+    margin:0px;
+    padding:0px;
+    background-color: #fff;
+}
+
+p{
+    font-size: 1.1em;
+    margin-bottom: 2em;
+    text-align: justify;
+}
+
+ .btn-primary{
+    color: #000;
+    background-color: #D8A042;
+    border-color: #b68838;
+}
+
+
+.btn-primary:hover{
+    color: #000;
+    background-color: #db8c03;/*#af8336; /*Oscuro*/
+    border-color: #b68838;
+}
+
+.btn-primary.focus, .btn-primary:focus{
+    color: #000;
+    background-color: #db8c03; /*Oscuro mismo*/
+    border-color: #b68838;
+    box-shadow:0 0 0 .2rem rgba(182, 136, 56, 0.5);
+}
+
+
+.btn-primary.disabled, .btn-primary:disabled{
+    color: #000;
+    background-color: #D8A042; /*Normal todo*/
+    border-color: #b68838;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+    color: #000;
+    background-color: #af8336;
+    border-color: #be7901;
+}
+
+/* .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+} */
+
+
+/* .btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show>.btn-primary.dropdown-toggle{
+    box-shadow:0 0 0 .2rem rgba(182, 136, 56, 0.5);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus,.show>.btn-primary.dropdown-toggle:focus{
+    box-shadow:0 0 0 .2rem rgba(182, 136, 56, 0.5);
+}
+
+.btn-primary.dropdown-toggle{
+    color: #000;
+    background-color: #db8c03;
+    border-color: #be7901;
+} */
+
+footer{
+    width: 100vw;
+    background-color: #9E2E21;
+    background: -webkit-linear-gradient(to right,#9e2e21, #e24331);
+    background: linear-gradient(to right,#9e2e21, #e24331);
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+}
+
+.errorSi{
+    color: red;
+    font-size: 0.85em;
+}
