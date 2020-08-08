@@ -14,7 +14,9 @@ if(isset($_POST["botAgregar"]))
 
     $conexion = initDB();
     $res = insertFamilia($txtApellidos, $txtCel, $txtEmail, $selectCapilla, $conexion);
-    echo($res);
+
+    echo "<script>alert('$res'); window.location='index.php';</script>";
+
 }
 
 ?>
@@ -28,6 +30,9 @@ if(isset($_POST["botAgregar"]))
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/estilo.css"/>
     <script src="js/validators.js"></script>
+    <!-- Por si se necesita js para ciertas funcionalidades de bootstrap -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
 
     <title>Familia Secreta PCR</title>
 </head>
