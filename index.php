@@ -42,7 +42,7 @@ if(isset($_POST["botAgregar"]))
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
 
-    <title>Familia Secreta PCR</title>
+    <title>Mi Familia Secreta PCR</title>
 </head>
 
 <body>
@@ -57,7 +57,7 @@ if(isset($_POST["botAgregar"]))
                         <img src="imgs/LogoFamilia.png" class="img-fluid p-lg-5" alt="Fondo Dorado, Mes de la Familia, Logo de la Parroquia"/>
                     </div>
                     <div class="card-body">
-                        <p>Únete a nuestra celebración del Mes de la Familia con la actividad "Familia Secreta", donde cada familia inscrita recibirá la encomienda de orar
+                        <p>Únete a nuestra celebración del Mes de la Familia con la actividad "Mi Familia Secreta", donde cada familia inscrita recibirá la encomienda de orar
                             por una familia en particular elegida al azar, la cual revelarán hasta finalizar el mes. <b>¡No te quedes sin inscribir a tu familia en esta jornada de oración!</b>
                         </p>
                         <form action="index.php" id="formRegister" method="POST">
@@ -83,10 +83,11 @@ if(isset($_POST["botAgregar"]))
                                 <div class="form-group col-lg-6 mb-4">
                                     <label for="selectCapilla">Capilla</label>
                                     <select name="selectCapilla" class="form-control">
-                                        <option value="Parroquia Cristo Resucitado" selected>Parroquia Cristo Resucitado</option>
+                                        <option value="Parroquia Cristo Resucitado" selected>Sede Parroquial, Col Loarque</option>
                                         <option value="Altos de Loarque">Altos de Loarque, Nuestra Señora del Carmen</option>
-                                        <option value="Yagüasire">Yagüasire, San Antonio de Padua</option>
+                                        <option value="Yaguasire">Yaguasire, San Antonio de Padua</option>
                                         <option value="Las Mercedes">Las Mercedes</option>
+                                        <option value="Otra Parroquia">Otra Parroquia</option>
                                     </select>
                                 </div>
 
