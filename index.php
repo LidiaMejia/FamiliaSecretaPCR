@@ -1,3 +1,25 @@
+<?php
+
+require_once "./dao.php";
+
+//Obtener datos
+if(isset($_POST["botAgregar"]))
+{
+    $txtApellidos  = $_POST["txtApellidos"];
+    $txtCel        = $_POST["txtCel"];
+    $txtEmail      = $_POST["txtEmail"];
+    $selectCapilla = $_POST["selectCapilla"];
+
+    //echo $txtApellidos. " " .$txtCel. " " .$txtEmail. " " .$selectCapilla;
+
+    $conexion = initDB();
+    $res = insertFamilia($txtApellidos, $txtCel, $txtEmail, $selectCapilla, $conexion);
+    echo($res);
+}
+
+?>
+
+
 <!DOCTYPE html>
 
 <head>
@@ -55,7 +77,7 @@
                                     </select>
                                 </div>
 
-                            <button type="submit" id="botAgregar" class="btn btn-primary">INSCRIBIR FAMILIA</button>
+                            <button type="submit" name="botAgregar" id="botAgregar" class="btn btn-primary">INSCRIBIR FAMILIA</button>
                         </form>
                     </div>
                 </div>
@@ -135,7 +157,8 @@
 
         if(cont == 0)
         {
-            document.getElementById("formRegister").submit();
+            //document.getElementById("formRegister").submit(); //No ingresa al $_POST
+            onClick="document.forms["botAgregar"].submit();"    //Se sube desde el botón
         }
     });
 </script>
