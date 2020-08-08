@@ -35,11 +35,11 @@ function insertFamilia($apellidos, $celular, $email, $capilla, $conexion)
     {
         //$error = $conexion->errno . ' ' . $conexion->error;
         //echo $error;
-        return "Ocurrió un error al ingresar la familia";
+        return 1;
     }
     else
     {
-        return "¡Familia ingresada con Éxito!";
+        return 0;
     }
 }
 

@@ -15,7 +15,15 @@ if(isset($_POST["botAgregar"]))
     $conexion = initDB();
     $res = insertFamilia($txtApellidos, $txtCel, $txtEmail, $selectCapilla, $conexion);
 
-    echo "<script>alert('$res'); window.location='index.php';</script>";
+    //Si hay error
+    if($res == 1)
+    {
+        echo "<script>alert('Ocurrió un error al ingresar la familia'); window.location='index.php';</script>";
+    }
+    else
+    {
+        echo "<script>window.location='successfully.php';</script>";
+    }
 
 }
 
