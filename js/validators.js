@@ -22,6 +22,5 @@ function valCel(cel)
 
 function valEmail(email)
 {
-    alert(emailRegex.test(email));
     return (emailRegex.test(email)); //true si está bien escrito
 }

@@ -22,10 +22,10 @@
                         <img src="imgs/LogoFamilia.png" class="img-fluid p-lg-5" alt="Fondo Dorado, Mes de la Familia, Logo de la Parroquia"/>
                     </div>
                     <div class="card-body">
-                        <p>Únete a nuestra celebración del Mes de la Familia con "La Familia Secreta", donde cada familia inscrita recibirá la encomienda de orar
-                            por una familia particular elegida al azar, la cual revelarán al finalizar el mes. <b>¡No te quedes sin inscribir a tu familia en esta jornada de oración!</b>
+                        <p>Únete a nuestra celebración del Mes de la Familia con la actividad "Familia Secreta", donde cada familia inscrita recibirá la encomienda de orar
+                            por una familia en particular elegida al azar, la cual revelarán hasta finalizar el mes. <b>¡No te quedes sin inscribir a tu familia en esta jornada de oración!</b>
                         </p>
-                        <form action="index.php" method="POST">
+                        <form action="index.php" id="formRegister" method="POST">
                             <div class="form-row">
                                 <div class="col-lg-6 mb-4">
                                     <label for="txtApellidos">Apellidos de la Familia</label>
@@ -97,6 +97,7 @@
             txtApellidos.style.borderColor = "red";
             apellidoInvalid.classList.remove("d-none");
             apellidoInvalid.classList.add("errorSi");
+            cont++;
         }
         else
         {
@@ -110,6 +111,7 @@
             txtCel.style.borderColor = "red";
             celInvalid.classList.remove("d-none");
             celInvalid.classList.add("errorSi");
+            cont++;
         }
         else 
         {
@@ -123,38 +125,17 @@
             txtEmail.style.borderColor = "red";
             emailInvalid.classList.remove("d-none");
             emailInvalid.classList.add("errorSi");
+            cont++;
         }
         else
         {
             txtEmail.style.borderColor = "#ced4da";
             emailInvalid.classList.add("d-none");
         }
+
+        if(cont == 0)
+        {
+            document.getElementById("formRegister").submit();
+        }
     });
-
-    //alert("CEL VALUE: "+txtCel.value);
-
-    // // Disable form submissions if there are invalid fields
-    // (function () 
-    // {
-    //     'use strict';
-    //     window.addEventListener('load', function () 
-    //     {
-    //         // Get the forms we want to add validation styles to
-    //         var forms = document.getElementsByClassName('needs-validation');
-    //         // Loop over them and prevent submission
-    //         var validation = Array.prototype.filter.call(forms, function (form) 
-    //         {
-    //             form.addEventListener('submit', function (event) 
-    //             {
-    //                 if (form.checkValidity() === false) 
-    //                 {
-    //                     event.preventDefault();
-    //                     event.stopPropagation();
-    //                 }
-
-    //                 form.classList.add('was-validated');
-    //             }, false);
-    //         });
-    //     }, false);
-    // })();
 </script>
