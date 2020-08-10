@@ -26,12 +26,16 @@ p{
     text-align: justify;
 }
 
+.errorSi{
+    color: red;
+    font-size: 0.85em;
+}
+
  .btn-primary{
     color: #000;
     background-color: #D8A042;
     border-color: #b68838;
 }
-
 
 .btn-primary:hover{
     color: #000;
@@ -60,6 +64,8 @@ p{
     border-color: #be7901;
 }
 
+
+/* PARA LA TARJETA DE AGRADECIMIENTO */
 #card-headerCheck{
     border-bottom: none;
 }
@@ -97,6 +103,16 @@ h2{
     -webkit-background-clip: text;
 }
 
+
+/* PARA LA LISTA DE FAMILIAS */
+#trash{
+    cursor: pointer;
+}
+
+#trash:hover{
+    color: red;
+}
+
 footer{
     width: 100vw;
     background-color: #9E2E21;
@@ -105,9 +121,4 @@ footer{
     position: fixed;
     left: 0px;
     bottom: 0px;
-}
-
-.errorSi{
-    color: red;
-    font-size: 0.85em;
 }
