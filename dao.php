@@ -70,4 +70,21 @@ function getFamilias($conexion)
     }
 }
 
+function deleteFamilia($id, $conexion)
+{
+    $query = "DELETE FROM familias WHERE id = ?;";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("d", $id);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 ?>

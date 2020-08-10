@@ -53,8 +53,8 @@ if($row == 1)
                                 <td> <?php echo $familia['apellidos']; ?> </td>
                                 <td> <?php echo $familia['celular']; ?> </td>
                                 <td> <?php echo $familia['email']; ?> </td>
-                                <td> <?php echo $familia['capilla']; ?> </td>
-                                <td><i class="fas fa-trash mr-3 ml-3" name="trash" id="<?php echo $familia['id']; ?>"></i></td>
+                                <td> <?php echo $familia['capilla']; ?> </td>                           <!-- Enviar varios parámetros con PHP -->
+                                <td><i class="fas fa-trash mr-3 ml-3" name="trash" onclick="borrar(<?=$familia['id']?>, '<?=$familia['apellidos']?>')"></i></td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -71,23 +71,16 @@ if($row == 1)
 </html>
 
 <script>
-    var trash = document.getElementsByName("trash");
-
-    for(let i=0; i<trash.length; i++)
+    function borrar(id, fam)
     {
-        trash[i].addEventListener("click", function(e){
-            //confirm("CLICK: "+trash[i].getAttribute("id"));
-            var opcion = confirm("Clicka en Aceptar o Cancelar");
-            if (opcion == true) {
-                //Funcion Borrado en dao pasando el attr id
-                alert("BORRASTE: " + trash.value); 
-            } else {
-            }
-        });
-    }
+        //Ventana de diálogo con "Aceptar" o "Cancelar"
+        var option = confirm("¿Desea eliminar la familia "+id+" - "+fam+"?");
 
-    //Mandar a Llamar los datos arriba, se recibe un row
-    // enmmedio del html se muestra ese row
-    // en id de trash se coloca el row id
-    // cuando se de clic se valida si quiere borrar o no
+        if(option == true)
+        {
+            //Va a la página de borrado con el id
+            window.location.href = "borrar.php?id=" + id;
+        }
+    }
 </script>
+
