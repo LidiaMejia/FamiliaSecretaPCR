@@ -105,11 +105,17 @@ h2{
 
 
 /* PARA LA LISTA DE FAMILIAS */
-#trash{
+#listBody{
+    background-image: url("../imgs/FondoBlanco.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+}
+
+i[name="trash"]{
     cursor: pointer;
 }
 
-#trash:hover{
+i[name="trash"]:hover{
     color: red;
 }
 
