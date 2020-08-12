@@ -172,7 +172,7 @@ if(isset($_POST["botAgregar"]))
         if(cont == 0)
         {
             //document.getElementById("formRegister").submit(); //No ingresa al $_POST
-            onClick="document.forms["botAgregar"].submit();"    //Se sube desde el botón
+            onClick= "document.forms["botAgregar"].submit();"   //Se sube desde el botón
         }
     });
 </script>

@@ -17,7 +17,7 @@ function initDB()
     {
         //echo "Ocurrió un error";
         //echo "No se pudo establecer la conexión con la Base de Datos";
-        die($conexion->connect_error);
+        die();
     }
 
     return $conexion;
@@ -85,6 +85,39 @@ function deleteFamilia($id, $conexion)
     {
         return 0;
     }
+}
+
+function getRamdom($conexion)
+{
+    $query = "SELECT COUNT(id)AS TOTAL FROM familias";
+    $data = $conexion ->prepare($query);
+    $data->execute();
+    $result = $data->get_result();
+
+    $resultArray = array();
+
+    if(isset($result) && $result != '' )
+    {
+        $count = mysqli_fetch_array($result);
+        $count  = $count[0];
+
+        $sql = "SELECT * FROM familias ORDER BY rand(". time() ."*". time() .")LIMIT $count ";
+        $resultado = mysqli_query($conexion,$sql);
+
+        foreach($resultado as $row)
+        {
+            $resultArray[] = $row;
+        }
+        $resultado->free(); //Liberar la memoria asociada con el resultado
+
+        return $resultArray;
+        
+    }
+    else
+    {
+        return 1;
+    }
+
 }
 
 ?>
