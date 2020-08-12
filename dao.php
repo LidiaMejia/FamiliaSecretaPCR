@@ -87,18 +87,16 @@ function deleteFamilia($id, $conexion)
     }
 }
 
-function getRamdom($conexion)
+function getRandom($conexion)
 {
     $query = "SELECT COUNT(id)AS TOTAL FROM familias";
-    $data = $conexion ->prepare($query);
-    $data->execute();
-    $result = $data->get_result();
+    $result = $conexion->query($query);
 
     $resultArray = array();
 
     if(isset($result) && $result != '' )
     {
-        $count = mysqli_fetch_array($result);
+        $count  = mysqli_fetch_array($result);
         $count  = $count[0];
 
         $sql = "SELECT * FROM familias ORDER BY rand(". time() ."*". time() .")LIMIT $count ";
