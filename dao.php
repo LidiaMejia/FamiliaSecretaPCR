@@ -45,10 +45,11 @@ function insertFamilia($apellidos, $celular, $email, $capilla, $conexion)
 
 function getFamilias($conexion)
 {
-    $query = "SELECT * FROM familias;";
-    $data  = $conexion->prepare($query);
-    $data->execute();
-    $result = $data->get_result();
+    $query  = "SELECT * FROM familias;";
+    $result = $conexion->query($query);
+    // $data  = $conexion->prepare($query);
+    // $data->execute();
+    // $result = $data->get_result();
 
     $resultArray = array(); //Array para guardar todos los datos
 
