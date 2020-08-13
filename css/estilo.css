@@ -8,6 +8,30 @@ body{
 
 /*Loader*/
 /* ------------------------------------------- */
+#tableRandom
+     {
+         display: none;
+     }
+     #uno
+     {
+         display: none;
+         margin: 0px auto;
+         text-align: center;
+     }
+     .card-body
+     {
+        margin: 0px auto;
+        text-align: center;
+     }
+     .card-body p
+     {
+         text-align: center;
+         font-size: 32px;
+     }
+     .mb-4
+     {
+         text-align: center;
+     }
 *{
     box-sizing: border-box;
   }
@@ -29,8 +53,8 @@ body{
     border-top-color: #9e2e21;
     border-left-color: #9e2e21;
     border-radius: 50%;
-    animation: loader 2.9s linear ;
-    animation-duration: 15s;
+    animation: loader 0.5s linear;
+    animation-duration: 5s;
  
   }
    
@@ -44,8 +68,8 @@ body{
     border-top-color: #be7901;
     border-left-color: #be7901;
     border-radius: 50%;
-    animation: loader2 2.9s linear;
-    animation-duration: 15s;
+    animation: loader2 0.5s linear;
+    animation-duration: 5s;
   }
    
   @keyframes loader{

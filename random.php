@@ -5,8 +5,6 @@ require_once "./dao.php";
 //arreglo de datos 
 $conexion = initDB();
 $lista = getRandom($conexion);
-
-
 if($lista == 1)
 {
     echo "<script> alert('No se pudieron cargar los datos de las Familias'); window.location = 'index.php'; </script>";
@@ -24,33 +22,6 @@ if($lista == 1)
     <link rel="stylesheet" href="css/estilo.css"/>
     <script src="https://kit.fontawesome.com/b17457e142.js" crossorigin="anonymous"></script>
 
-    <style type = "text/css">
-     #tableRandom
-     {
-         display: none;
-     }
-     #uno
-     {
-         display: none;
-         margin: 0px auto;
-         text-align: center;
-     }
-     .card-body
-     {
-        margin: 0px auto;
-        text-align: center;
-     }
-     .card-body p
-     {
-         text-align: center;
-         font-size: 32px;
-     }
-     .mb-4
-     {
-         text-align: center;
-     }
-
-    </style>
 
     <title>Generar Sorteo</title>
 </head>
@@ -62,7 +33,7 @@ if($lista == 1)
         <p>
             ¡Sorteo! <b>Mi Familia Secreta</b> <br>
 
-            <br> <i>"Familia Reconcialida y Reconciliadora"</i>
+            <br> <i>"Familia Reconciliada y Reconciliadora"</i>
 
         </p>
         <button type="submit" name="botgenerar" id="botgenerar" class="btn btn-primary" onclick="mostrarRandom();">Generar Sorteo</button>
@@ -140,24 +111,21 @@ if($lista == 1)
 </html>
 
 <script type="text/javascript">
-var tiempo = 0;
+
  function mostrarRandom()
  {
+    
      document.getElementById('uno').style.display = "block";
      document.getElementById('botgenerar').style.display = "none";
-     
-     tiempo = Math.floor((newDate().getTime())/1000);
-
-     if(tiempo == 15)
-     {
-        document.getElementById('uno').style.display = "none";
-        document.getElementById('tableRandom').style.display = "block";
-     }
-
-     
-     
+     setTimeout(MostrarTabla,5000);
+   
  }
 
+ function MostrarTabla()
+ {
+    document.getElementById('uno').style.display = "none";
+    document.getElementById('tableRandom').style.display = "block";
+ }
  
 
  </script>
