@@ -13,6 +13,7 @@ if($row == 1)
 ?>
 
 <!DOCTYPE html>
+<html lang="es">
 
 <head>
     <meta charset="utf-8">

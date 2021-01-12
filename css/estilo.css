@@ -1,10 +1,13 @@
 body{
-    background-image: url("../imgs/FondoBlanco.jpg");
+    /* background-image: url("../imgs/FondoBlanco.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     height: 100%;
 }
 
+*{
+    box-sizing: border-box;
+  }
 
 /*Loader*/
 /* ------------------------------------------- */
@@ -18,7 +21,7 @@ body{
          margin: 0px auto;
          text-align: center;
      }
-     .card-body
+     /* .card-body
      {
         margin: 0px auto;
         text-align: center;
@@ -27,14 +30,11 @@ body{
      {
          text-align: center;
          font-size: 32px;
-     }
+     } */
      .mb-4
      {
          text-align: center;
      }
-*{
-    box-sizing: border-box;
-  }
    
   .loader-container{
     position: relative;
@@ -91,6 +91,7 @@ body{
   }
   /* ------------------------------------------- */
   /*Fin de Loader*/
+
 
 header{
     width: 100vw;
@@ -152,6 +153,60 @@ p{
 }
 
 
+/* PARA CATEQUESIS */
+.inscripcionCardContainer {
+    text-align: left;
+}
+
+.inscripcionCardContainer .inscripcionCard{
+    box-shadow: 3px 3px 7px #BBB;
+    transition: 0.25s ease-in-out box-shadow;
+}
+
+.inscripcionCardContainer .inscripcionCard:hover{
+    box-shadow: none;
+    transition: 0.25s ease-in-out box-shadow;
+}
+
+.btn-pcr{
+    color: #FFF;
+    background-color: #8F2E27;
+    border: none;
+}
+
+.btn-pcr:hover{
+    color: #FFF;
+    background-color: #6d231e;
+}
+
+.btn-pcr.focus, .btn-pcr:focus{
+    color: #FFF;
+    background-color: #6d231e;
+    box-shadow:0 0 0 .2rem rgba(218, 52, 40, 0.5);
+}
+
+.btn-pcr.disabled, .btn-pcr:disabled{
+    color: #FFF;
+    background-color: #8F2E27;
+}
+
+.btn-pcr:not(:disabled):not(.disabled):active, .btn-pcr:not(:disabled):not(.disabled).active,
+.show > .btn-pcr.dropdown-toggle {
+    color: #FFF;
+    background-color: #913d37;
+}
+
+/*- Tablets -*/
+@media (min-width: 768px)
+{
+  .logo{
+    width: 50%;
+  }
+}
+/*-----------------*/
+
+
+
 /* PARA LA TARJETA DE AGRADECIMIENTO */
 #card-headerCheck{
     border-bottom: none;
@@ -190,6 +245,8 @@ h2{
     -webkit-background-clip: text;
 }
 
+/*-------------------------------------*/
+
 
 /* PARA LA LISTA DE FAMILIAS */
 #listBody{
@@ -205,13 +262,14 @@ i[name="trash"]{
 i[name="trash"]:hover{
     color: red;
 }
+/*---------------------------*/
 
 footer{
-    width: 100vw;
+    width: 100vw; 
     background-color: #9E2E21;
     background: -webkit-linear-gradient(to right,#9e2e21, #e24331);
     background: linear-gradient(to right,#9e2e21, #e24331);
-    position: fixed;
+    /* position: fixed; */
     left: 0px;
     bottom: 0px;
 }

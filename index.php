@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 require_once "./dao.php";
 
@@ -27,10 +27,11 @@ if(isset($_POST["botAgregar"]))
 
 }
 
-?>
+?> -->
 
 
 <!DOCTYPE html>
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -42,17 +43,90 @@ if(isset($_POST["botAgregar"]))
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
 
-    <title>Mi Familia Secreta PCR</title>
+    <title>Catequesis 2021 PCR</title>
 </head>
 
 <body>
-    <header class="p-3 mr-3 mb-5">Parroquia Cristo Resucitado</header>
+    <header class="p-0 m-0 pt-3 pb-3 mb-4">Parroquia Cristo Resucitado</header>
 
     <main class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-12">
+
+                <div class="d-flex justify-content-center align-items-center flex-wrap text-center">
+                    <img src="imgs/LogoParroquia.png" class="img-fluid logo" alt="Logo de la Parroquia"/>
+                    <h3>Inscripciones a Catequesis y Coro 2021</h3>
+                </div>
+
+                <div>
+                    <p class="mt-3 text-center">Seleccione la actividad a la cual desea inscribirse:</p>
+
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                            <img src="imgs/CatequesisComunión.jpg" class="card-img-top" alt="Niña recibiendo la Santa Comunión">
+                            <div class="card-body">
+                                <br/>
+                                <h5 class="card-title text-center">Catequesis de Primera Comunión</h5>
+                                <br/>
+                                <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                            </div class="card-footer">
+                                <button type="button" name="botPrimeraC" id="botPrimeraC" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                            <img src="imgs/CatequesisConfirma.jpg" class="card-img-top" alt="Joven recibiendo la bendición con aceite ungido">
+                            <div class="card-body">
+                                <br/>
+                                <h5 class="card-title text-center">Catequesis de Confirma</h5>
+                                <br/>
+                            </div class="card-footer">
+                                <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                            <img src="imgs/CatequesisAdultos.jpg" class="card-img-top" alt="Hombre recibiendo el Bautismo">
+                            <div class="card-body">
+                                <br/>
+                                <h5 class="card-title text-center">Catequesis para Adultos</h5>
+                                <br/>
+                            </div class="card-footer">
+                                <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                            <img src="imgs/CoroNiños.jpg" class="card-img-top" alt="Niños cantando en el coro">
+                            <div class="card-body">
+                                <br/>
+                                <h5 class="card-title text-center">Coro para Niños</h5>
+                                <br/>
+                            </div class="card-footer">
+                                <button type="button" name="botCoroN" id="botCoroN" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                            <img src="imgs/CoroAdultos.jpg" class="card-img-top" alt="Personas cantando en un coro">
+                            <div class="card-body">
+                                <br/>
+                                <h5 class="card-title text-center">Coro para Adultos</h5>
+                                <br/>
+                            </div class="card-footer">
+                                <button type="button" name="botCoroA" id="botCoroA" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+
                 <!-- Card que contiene el formulario. p = padding  mb = margin-bottom  d-none = display: none -->
-                <div class="card shadow-lg p-3 mb-5 bg-white">
+                <!-- <div class="card shadow-lg p-3 mb-5 bg-white">
                     <div class="card-header">
                         <img src="imgs/LogoFamilia.png" class="img-fluid p-lg-5" alt="Fondo Dorado, Mes de la Familia, Logo de la Parroquia"/>
                     </div>
@@ -94,85 +168,130 @@ if(isset($_POST["botAgregar"]))
                             <button type="submit" name="botAgregar" id="botAgregar" class="btn btn-primary">INSCRIBIR FAMILIA</button>
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <!-- Fin Card que contiene el formulario -->
             </div>
         </div>
     </main>
 
-    <footer class="p-3"></footer>
+    <footer class="p-0 m-0 pt-3 pb-3 mt-3"></footer>
     
 </body>
 
 </html>
 
 <script>
-    var botAgregar = document.getElementById("botAgregar");
+    //let botAgregar  = document.getElementById("botAgregar");
+    let botPrimeraC = document.getElementById("botPrimeraC");
+    let botConfirma = document.getElementById("botConfirma");
+    let botCAdultos = document.getElementById("botCAdultos");
+    let botCoroN    = document.getElementById("botCoroN");
+    let botCoroA    = document.getElementById("botCoroA");
 
-    //Click Botón
-    botAgregar.addEventListener("click", function(e)
-    {
+    //Primera Comunión Form
+    botPrimeraC.addEventListener("click", function(e){
         e.preventDefault();
         e.stopPropagation();
 
-        var cont = 0; //Contador de Errores
-
-        //Obtener datos
-        var txtApellidos    = document.getElementById("txtApellidos");
-        var apellidoInvalid = document.getElementById("apellidoInvalid");
-
-        var txtCel          = document.getElementById("txtCel");
-        var celInvalid      = document.getElementById("celInvalid");
-
-        var txtEmail        = document.getElementById("txtEmail");
-        var emailInvalid    = document.getElementById("emailInvalid");
-
-        //Validar Apellidos
-        if( valEmptyField(txtApellidos.value) || !valName(txtApellidos.value) )
-        {
-            txtApellidos.style.borderColor = "red";
-            apellidoInvalid.classList.remove("d-none");
-            apellidoInvalid.classList.add("errorSi");
-            cont++;
-        }
-        else
-        {
-            txtApellidos.style.borderColor = "#ced4da";
-            apellidoInvalid.classList.add("d-none");
-        }
-
-        //Validar Celular si se ingresa uno
-        if( !valEmptyField(txtCel.value) && !valCel(txtCel.value) )
-        {
-            txtCel.style.borderColor = "red";
-            celInvalid.classList.remove("d-none");
-            celInvalid.classList.add("errorSi");
-            cont++;
-        }
-        else 
-        {
-            txtCel.style.borderColor = "#ced4da";
-            celInvalid.classList.add("d-none");
-        }
-
-        //Validar Correo si se ingresa uno
-        if( !valEmptyField(txtEmail.value) && !valEmail(txtEmail.value) )
-        {
-            txtEmail.style.borderColor = "red";
-            emailInvalid.classList.remove("d-none");
-            emailInvalid.classList.add("errorSi");
-            cont++;
-        }
-        else
-        {
-            txtEmail.style.borderColor = "#ced4da";
-            emailInvalid.classList.add("d-none");
-        }
-
-        if(cont == 0)
-        {
-            //document.getElementById("formRegister").submit(); //No ingresa al $_POST
-            onClick= "document.forms["botAgregar"].submit();"   //Se sube desde el botón
-        }
+        window.location = "comunionForm.php";
     });
+
+    //Confirma Form
+    botConfirma.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "confirmaForm.php";
+    });
+
+    //Catequesis Adultos Form
+    botCAdultos.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "catequesisAdultosForm.php";
+    });
+
+    //Coro para Niños Form
+    botCoroN.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "coroNinosForm.php";
+    });
+
+    //Coro para Adultos Form
+    botCoroA.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "coroAdultosForm.php";
+    });
+
+    //Click Botón
+    // botAgregar.addEventListener("click", function(e)
+    // {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+
+    //     let cont = 0; //Contador de Errores
+
+    //     //Obtener datos
+    //     let txtApellidos    = document.getElementById("txtApellidos");
+    //     let apellidoInvalid = document.getElementById("apellidoInvalid");
+
+    //     let txtCel          = document.getElementById("txtCel");
+    //     let celInvalid      = document.getElementById("celInvalid");
+
+    //     let txtEmail        = document.getElementById("txtEmail");
+    //     let emailInvalid    = document.getElementById("emailInvalid");
+
+    //     //Validar Apellidos
+    //     if( valEmptyField(txtApellidos.value) || !valName(txtApellidos.value) )
+    //     {
+    //         txtApellidos.style.borderColor = "red";
+    //         apellidoInvalid.classList.remove("d-none");
+    //         apellidoInvalid.classList.add("errorSi");
+    //         cont++;
+    //     }
+    //     else
+    //     {
+    //         txtApellidos.style.borderColor = "#ced4da";
+    //         apellidoInvalid.classList.add("d-none");
+    //     }
+
+    //     //Validar Celular si se ingresa uno
+    //     if( !valEmptyField(txtCel.value) && !valCel(txtCel.value) )
+    //     {
+    //         txtCel.style.borderColor = "red";
+    //         celInvalid.classList.remove("d-none");
+    //         celInvalid.classList.add("errorSi");
+    //         cont++;
+    //     }
+    //     else 
+    //     {
+    //         txtCel.style.borderColor = "#ced4da";
+    //         celInvalid.classList.add("d-none");
+    //     }
+
+    //     //Validar Correo si se ingresa uno
+    //     if( !valEmptyField(txtEmail.value) && !valEmail(txtEmail.value) )
+    //     {
+    //         txtEmail.style.borderColor = "red";
+    //         emailInvalid.classList.remove("d-none");
+    //         emailInvalid.classList.add("errorSi");
+    //         cont++;
+    //     }
+    //     else
+    //     {
+    //         txtEmail.style.borderColor = "#ced4da";
+    //         emailInvalid.classList.add("d-none");
+    //     }
+
+    //     if(cont == 0)
+    //     {
+    //         //document.getElementById("formRegister").submit(); //No ingresa al $_POST
+    //         onClick= "document.forms["botAgregar"].submit();"   //Se sube desde el botón
+    //     }
+    // });
 </script>
