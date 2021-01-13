@@ -5,6 +5,12 @@ body{
     height: 100%;
 }
 
+#comunion{
+    background-image: url("../imgs/FondoBlanco.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 *{
     box-sizing: border-box;
   }

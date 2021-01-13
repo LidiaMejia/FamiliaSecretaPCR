@@ -6,7 +6,7 @@ function initDB()
     $hostname = "127.0.0.1";
     $username = "userp";
     $password = "r3suc1t4d0";
-    $database = "familiaspcr";
+    $database = "inscripcionespcr";
     $port     = "3306";
 
     //Establecer conexión
@@ -24,11 +24,11 @@ function initDB()
 }
 
 //FUNCIONES OPERATIVAS
-function insertFamilia($apellidos, $celular, $email, $capilla, $conexion)
+function insertComunion($nombre, $edad, $telefono, $email, $conexion)
 {
-    $query =  "INSERT INTO familias (apellidos, celular, email, capilla) VALUES (?,?,?,?)";
+    $query =  "INSERT INTO comunion (nombre, edad, telefono, email) VALUES (?,?,?,?)";
     $data  =  $conexion->prepare($query);
-    $data->bind_param("ssss", $apellidos, $celular, $email, $capilla);
+    $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
     $data->execute();
 
     if($conexion->error)

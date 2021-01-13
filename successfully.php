@@ -22,9 +22,18 @@
                         <img src="imgs/Check.png" class="mx-auto d-block" id="check" alt="Ícono de cheque blanco con fondo verde"/>
                     </div>
                     <div class="card-body">
-                        <h2>¡GRACIAS POR INSCRIBIR A TU FAMILIA!</h2>
+                        <h2>¡GRACIAS POR REALIZAR LAS INSCRIPCIONES!</h2>
                     </div>
                     <div class="card-footer">
+                  
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
                         <p id="mediap">Síguenos para seguir participando de nuestras actividades</p>
                         <a class="btn-floating btn-lg" id="fb" type="button" role="button" href="https://es-la.facebook.com/parroquiacristoresucitadohn/"><i class="fab fa-facebook fa-2x"></i></a>
                         <a class="btn-floating btn-lg" id="tw" type="button" role="button" href="https://twitter.com/cristo_hn"><i class="fab fa-twitter fa-2x"></i></a>
