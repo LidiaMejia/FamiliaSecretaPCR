@@ -1,4 +1,5 @@
 <?php
+
 require_once "./dao.php";
 
 if(isset($_POST["btnAgregar"]))
@@ -8,22 +9,29 @@ if(isset($_POST["btnAgregar"]))
     $txtNum    = $_POST["txtNum"];
     $txtEmail  = $_POST["txtEmail"];
 
-    // $conexion = initDB();
-    // $res = insertComunion($txtNombre, $txtEdad, $txtNum, $txtEmail, $conexion);
-    // echo "<script> alert('TODO BIEN'); </script>";
+    $conexion = initDB();
+    $count    = checkIfCelExistsComunion($txtNum, $conexion);
 
-    //error
+    //Si aún no está registrado, se guardan los datos
+    if($count == 0)
+    {
+        $res = insertComunion($txtNombre, $txtEdad, $txtNum, $txtEmail, $conexion);
 
-    // if($res == 1)
-    // {
-    //     echo "<script> alert('Ocurrio un error al Ingresar Inscripcion'); window.loaction='comunionForm.php;</script>";
-    // }
+        //Error
+        if($res == 1)
+        {
+            echo "<script> alert('Ocurrió un error al ingresar la Inscripción. Por favor intente de nuevo.'); window.location='comunionForm.php;</script>";
+        }
+        else
+        {
+            echo "<script>window.location='successfully.php';</script>";
+        }
+    }
     // else
     // {
-    //     echo "<script> alert('TODO BIEN'); </script>"
-    //     echo "<script>window.location='successfully.php';</script>";
+         //echo "<script> alert('Ya existe una inscripción asociada con el número de celular ingresado. Deberá ingresar otro número.'); </script>";
+         //echo "<script> let alertHTML = document.getElementById('alertError'); alertHTML.classList.remove('d-none'); </script>";
     // }
-
 }
 
 ?>
@@ -69,10 +77,18 @@ if(isset($_POST["btnAgregar"]))
                         <form action="comunionForm.php" id="comunionRegister" method="POST">
                         
                             <div class="form-row d-flex justify-content-center align-items-center flex-wrap text-center">
+
+                                <!-- Error Cel -->
+                                <div class="col-lg-8 mb-4 text-center">
+                                    <div id="alertError" class="alert alert-danger alert-dismissible fade show <?php echo ( isset($_POST) ? ( ($count == 0 ) ? 'd-none' : 'd-block'): 'd-none' ); ?>" role="alert">
+                                        Ya existe una inscripción asociada con el número de celular ingresado. Deberá ingresar otro número
+                                    </div>
+                                </div>
+
                                 <!-- nombre -->
                                 <div class="col-lg-8 mb-4">
                                     <label for="txtNombre">Nombre Completo</label>
-                                    <input type="text" name="txtNombre" id="txtNombre" minlength="2" maxlength ="200" placeholder="José Vicente Carratala Pérez" class="form-control" required>
+                                    <input type="text" name="txtNombre" id="txtNombre" minlength="2" maxlength ="200" placeholder="José Vicente Carratala Pérez" class="form-control" autofocus required>
                                     <div id="nombreInvalid" class="d-none">Debe ingresar un nombre válido. Sin espacios en blanco al iniciar o finalizar</div>
                                 </div>
 
@@ -96,8 +112,8 @@ if(isset($_POST["btnAgregar"]))
                                     <input type="email" name="txtEmail" id="txtEmail" minlength="4" maxlength="100" placeholder="tucorreo@gmail.com" class="form-control"/>
                                     <div id="emailInvalid" class="d-none">Debe ingresar un correo válido</div>
                                 </div>
-
-                                <div class="col-lg-8 mb-4">
+                               
+                                <div class="col-lg-8 mb-4">                                                                          
                                     <button type="submit" name="btnAgregar" id="btnAgregar" class="btn btn-primary">Realizar Inscripción</button>
                                 </div>                               
                             </div>
@@ -119,6 +135,7 @@ if(isset($_POST["btnAgregar"]))
 
 
 <script>
+
     let btnAgregar = document.getElementById("btnAgregar");
 
     btnAgregar.addEventListener("click", function(e)
@@ -201,9 +218,8 @@ if(isset($_POST["btnAgregar"]))
 
         if(c == 0)
         {
-            document.getElementById("comunionRegister").submit();
-            //onClick = "document.forms["btnAgregar"].submit();"
+            onClick = 'document.forms['btnAgregar'].submit();'; 
         }
-
     });
+
 </script>

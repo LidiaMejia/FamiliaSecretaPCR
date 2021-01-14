@@ -24,6 +24,27 @@ function initDB()
 }
 
 //FUNCIONES OPERATIVAS
+function checkIfCelExistsComunion($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM comunion WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
 function insertComunion($nombre, $edad, $telefono, $email, $conexion)
 {
     $query =  "INSERT INTO comunion (nombre, edad, telefono, email) VALUES (?,?,?,?)";
