@@ -19,18 +19,26 @@
             <div class="col-lg-12">
                 <div class="card shadow-lg p-3 mb-5 bg-white">
                     <div class="card-header" id="card-headerCheck">
-                        <img src="imgs/Check.png" class="mx-auto d-block" id="check" alt="Ícono de cheque blanco con fondo verde"/>
+                        <br>
+                        <img src="imgs/clipboard.png" class="mx-auto d-block" id="check" alt="Ícono de libreta con cheque verde. Hecho por smashicons.com en flaticon.com"/>
                     </div>
                     <div class="card-body">
-                        <h2>¡GRACIAS POR REALIZAR LAS INSCRIPCIONES!</h2>
+                        <h2>¡GRACIAS POR REALIZAR TU INSCRIPCIÓN!</h2>
                     </div>
                     <div class="card-footer">
-                  
                       <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
+
+                      <div>
+                          <p class="text-center">Si lo deseas, puedes realizar otra inscripción</p>
+                          <div>
+                            <button type="button" name="botPrimeraC" id="botPrimeraC" class="btn btn-danger btn-pcr ml-3 successButtons">Primera Comunión</button>
+                            <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr ml-3 successButtons">Confirma</button>
+                            <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button>
+                            <button type="button" name="botCoroN"    id="botCoroN"    class="btn btn-danger btn-pcr ml-3 successButtons">Coro Niños</button>
+                            <button type="button" name="botCoroA"    id="botCoroA"    class="btn btn-danger btn-pcr ml-3 successButtons">Coro Adultos</button>
+                          </div>
+                      </div>
+
                       <br>
                       <br>
                       <br>
@@ -49,3 +57,53 @@
 </body>
 
 </html>
+
+<script>
+
+    let botPrimeraC = document.getElementById("botPrimeraC");
+    let botConfirma = document.getElementById("botConfirma");
+    let botCAdultos = document.getElementById("botCAdultos");
+    let botCoroN    = document.getElementById("botCoroN");
+    let botCoroA    = document.getElementById("botCoroA");
+
+    //Primera Comunión Form
+    botPrimeraC.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "comunionForm.php";
+    });
+
+    //Confirma Form
+    botConfirma.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "confirmaForm.php";
+    });
+
+    //Catequesis Adultos Form
+    botCAdultos.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "catequesisAdultosForm.php";
+    });
+
+    //Coro para Niños Form
+    botCoroN.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "coroNinosForm.php";
+    });
+
+    //Coro para Adultos Form
+    botCoroA.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "coroAdultosForm.php";
+    });
+
+</script>

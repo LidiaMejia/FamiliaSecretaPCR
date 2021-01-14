@@ -5,15 +5,14 @@ body{
     height: 100%;
 }
 
-#comunion{
-    background-image: url("../imgs/FondoBlanco.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 *{
     box-sizing: border-box;
-  }
+}
+
+.h1-size {
+    font-size: 30px;
+}
+
 
 /*Loader*/
 /* ------------------------------------------- */
@@ -160,6 +159,20 @@ p{
 
 
 /* PARA CATEQUESIS */
+
+.img-logo-alone{
+    width: 80%;
+    height: auto;
+    padding: 0px;
+}
+
+.h1-form{
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 2rem;
+    background-color: #8F2E27;
+}
+
 .inscripcionCardContainer {
     text-align: left;
 }
@@ -200,14 +213,6 @@ p{
 .show > .btn-pcr.dropdown-toggle {
     color: #FFF;
     background-color: #913d37;
-}
-
-/*- Tablets -*/
-@media (min-width: 768px)
-{
-  .logo{
-    width: 50%;
-  }
 }
 /*-----------------*/
 
@@ -251,6 +256,10 @@ h2{
     -webkit-background-clip: text;
 }
 
+.successButtons{
+    margin-bottom: 1rem;
+}
+
 /*-------------------------------------*/
 
 
@@ -278,4 +287,25 @@ footer{
     /* position: fixed; */
     left: 0px;
     bottom: 0px;
+}
+
+
+/*- Tablets -*/
+@media (min-width: 768px)
+{
+  .logo{
+    width: 50%;
+  }
+}
+
+/*- Computadoras -*/
+@media (min-width: 992px)
+{
+  .h1-size {
+    font-size: 33px;
+  }
+
+  .successButtons{
+    margin-bottom: 0px;
+  }
 }
