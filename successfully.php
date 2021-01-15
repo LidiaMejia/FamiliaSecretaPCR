@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <header class="p-3 mr-3 mb-5">Parroquia Cristo Resucitado</header>
+    <header class="p-0 m-0 pt-3 pb-3 mb-4"><a href="index.php" data-toggle="tooltip" data-placement="top" title="Inicio">Parroquia Cristo Resucitado<a></header>
 
     <main class="container">
         <div class="row">
@@ -29,7 +29,7 @@
                       <br>
 
                       <div>
-                          <p class="text-center">Si lo deseas, puedes realizar otra inscripción</p>
+                          <p class="text-center">Si lo deseas, puedes realizar otra inscripción:</p>
                           <div>
                             <button type="button" name="botPrimeraC" id="botPrimeraC" class="btn btn-danger btn-pcr ml-3 successButtons">Primera Comunión</button>
                             <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr ml-3 successButtons">Confirma</button>
@@ -43,10 +43,10 @@
                       <br>
                       <br>
                         <p id="mediap">Síguenos para seguir participando de nuestras actividades</p>
-                        <a class="btn-floating btn-lg" id="fb" type="button" role="button" href="https://es-la.facebook.com/parroquiacristoresucitadohn/"><i class="fab fa-facebook fa-2x"></i></a>
-                        <a class="btn-floating btn-lg" id="tw" type="button" role="button" href="https://twitter.com/cristo_hn"><i class="fab fa-twitter fa-2x"></i></a>
-                        <a class="btn-floating btn-lg" id="yt" type="button" role="button" href="https://www.youtube.com/channel/UCDZi5Fc70E2pPzze72SSpcw"><i class="fab fa-youtube fa-2x"></i></a>
-                        <a class="btn-floating btn-lg" id="it" type="button" role="button" href="https://www.instagram.com/cristohn_resucitado/"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Facebook" class="btn-floating btn-lg" id="fb" type="button" role="button" href="https://es-la.facebook.com/parroquiacristoresucitadohn/"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Twitter" class="btn-floating btn-lg" id="tw" type="button" role="button" href="https://twitter.com/cristo_hn"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Youtube" class="btn-floating btn-lg" id="yt" type="button" role="button" href="https://www.youtube.com/channel/UCDZi5Fc70E2pPzze72SSpcw"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Instagram" class="btn-floating btn-lg" id="it" type="button" role="button" href="https://www.instagram.com/cristohn_resucitado/"><i class="fab fa-instagram fa-2x"></i></a>
                     </div>
                 </div>
             </div>

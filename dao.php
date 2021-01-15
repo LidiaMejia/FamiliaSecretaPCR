@@ -64,39 +64,32 @@ function insertComunion($nombre, $edad, $telefono, $email, $conexion)
     }
 }
 
-function getFamilias($conexion)
+function checkIfCelExistsConfirma($telefono, $conexion)
 {
-    $query  = "SELECT * FROM familias;";
-    $result = $conexion->query($query);
-    // $data  = $conexion->prepare($query);
-    // $data->execute();
-    // $result = $data->get_result();
+    $query = "SELECT COUNT(*) AS total FROM confirma WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
 
-    $resultArray = array(); //Array para guardar todos los datos
-
-    //Verificar si se obtuvieron datos
-    if(isset($result) && $result != '' )
-    {
-        foreach ($result as $row) 
-        {
-            $resultArray[] = $row;
-        }
-
-        $result->free(); //Liberar la memoria asociada con el resultado
-
-        return $resultArray;
-    }
-    else
+    if($conexion->error)
     {
         return 1;
     }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
 }
 
-function deleteFamilia($id, $conexion)
+function insertConfirma($nombre, $edad, $telefono, $email, $conexion)
 {
-    $query = "DELETE FROM familias WHERE id = ?;";
-    $data  = $conexion->prepare($query);
-    $data->bind_param("d", $id);
+    $query =  "INSERT INTO confirma (nombre, edad, telefono, email) VALUES (?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
     $data->execute();
 
     if($conexion->error)
@@ -109,35 +102,194 @@ function deleteFamilia($id, $conexion)
     }
 }
 
-function getRandom($conexion)
+function checkIfCelExistsAdultos($telefono, $conexion)
 {
-    $query = "SELECT COUNT(id)AS TOTAL FROM familias";
-    $result = $conexion->query($query);
+    $query = "SELECT COUNT(*) AS total FROM adultos WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
 
-    $resultArray = array();
-
-    if(isset($result) && $result != '' )
-    {
-        $count  = mysqli_fetch_array($result);
-        $count  = $count[0];
-
-        $sql = "SELECT * FROM familias ORDER BY rand(". time() ."*". time() .")LIMIT $count ";
-        $resultado = mysqli_query($conexion,$sql);
-
-        foreach($resultado as $row)
-        {
-            $resultArray[] = $row;
-        }
-        $resultado->free(); //Liberar la memoria asociada con el resultado
-
-        return $resultArray;
-        
-    }
-    else
+    if($conexion->error)
     {
         return 1;
     }
+    else
+    {
+        $count = mysqli_fetch_array($result);
 
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
 }
+
+function insertAdultos($nombre, $edad, $telefono, $email, $conexion)
+{
+    $query =  "INSERT INTO adultos (nombre, edad, telefono, email) VALUES (?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function checkIfCelExistsCoroKids($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM corokids WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertCoroKids($nombre, $edad, $telefono, $email, $conexion)
+{
+    $query =  "INSERT INTO corokids (nombre, edad, telefono, email) VALUES (?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function checkIfCelExistsCoroAdultos($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM coroadultos WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertCoroAdultos($nombre, $edad, $telefono, $email, $conexion)
+{
+    $query =  "INSERT INTO coroadultos (nombre, edad, telefono, email) VALUES (?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+// function getFamilias($conexion)
+// {
+//     $query  = "SELECT * FROM familias;";
+//     $result = $conexion->query($query);
+//     // $data  = $conexion->prepare($query);
+//     // $data->execute();
+//     // $result = $data->get_result();
+
+//     $resultArray = array(); //Array para guardar todos los datos
+
+//     //Verificar si se obtuvieron datos
+//     if(isset($result) && $result != '' )
+//     {
+//         foreach ($result as $row) 
+//         {
+//             $resultArray[] = $row;
+//         }
+
+//         $result->free(); //Liberar la memoria asociada con el resultado
+
+//         return $resultArray;
+//     }
+//     else
+//     {
+//         return 1;
+//     }
+// }
+
+// function deleteFamilia($id, $conexion)
+// {
+//     $query = "DELETE FROM familias WHERE id = ?;";
+//     $data  = $conexion->prepare($query);
+//     $data->bind_param("d", $id);
+//     $data->execute();
+
+//     if($conexion->error)
+//     {
+//         return 1;
+//     }
+//     else
+//     {
+//         return 0;
+//     }
+// }
+
+// function getRandom($conexion)
+// {
+//     $query = "SELECT COUNT(id)AS TOTAL FROM familias";
+//     $result = $conexion->query($query);
+
+//     $resultArray = array();
+
+//     if(isset($result) && $result != '' )
+//     {
+//         $count  = mysqli_fetch_array($result);
+//         $count  = $count[0];
+
+//         $sql = "SELECT * FROM familias ORDER BY rand(". time() ."*". time() .")LIMIT $count ";
+//         $resultado = mysqli_query($conexion,$sql);
+
+//         foreach($resultado as $row)
+//         {
+//             $resultArray[] = $row;
+//         }
+//         $resultado->free(); //Liberar la memoria asociada con el resultado
+
+//         return $resultArray;
+        
+//     }
+//     else
+//     {
+//         return 1;
+//     }
+
+// }
 
 ?>

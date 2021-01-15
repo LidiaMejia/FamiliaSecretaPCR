@@ -49,7 +49,7 @@ if(isset($_POST["btnAgregar"]))
 </head>
 
 <body>
-    <header class="p-3 mr-3 mb-5">Parroquia Cristo Resucitado</header>
+    <header class="p-3 mr-3 mb-5"><a href="index.php" data-toggle="tooltip" data-placement="top" title="Inicio">Parroquia Cristo Resucitado<a></header>
 
     <main class="container">
         <div class="row">
