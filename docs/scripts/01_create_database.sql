@@ -1,6 +1,6 @@
-CREATE SCHEMA `inscripcionespcr`;
+CREATE SCHEMA `cristore_inscripciones`;
 
-CREATE USER 'userp'@'%' IDENTIFIED BY 'r3suc1t4d0';
--- CREATE USER 'userp'@'%' IDENTIFIED WITH mysql_native_password BY 'r3suc1t4d0';
+CREATE USER 'cristore_ins'@'%' IDENTIFIED BY '38QdZiI9gprh';
+-- CREATE USER 'cristore_ins'@'%' IDENTIFIED WITH mysql_native_password BY '38QdZiI9gprh';
 
-GRANT ALL PRIVILEGES ON inscripcionespcr.* TO 'userp'@'%';
+GRANT ALL PRIVILEGES ON cristore_inscripciones.* TO 'cristore_ins'@'%';

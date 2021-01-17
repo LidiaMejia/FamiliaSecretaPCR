@@ -4,9 +4,9 @@ function initDB()
 {
     //Parámetros de conexión
     $hostname = "127.0.0.1";
-    $username = "userp";
-    $password = "r3suc1t4d0";
-    $database = "inscripcionespcr";
+    $username = "cristore_ins";
+    $password = "38QdZiI9gprh";
+    $database = "cristore_inscripciones";
     $port     = "3306";
 
     //Establecer conexión
@@ -142,7 +142,7 @@ function insertAdultos($nombre, $edad, $telefono, $email, $conexion)
 
 function checkIfCelExistsCoroKids($telefono, $conexion)
 {
-    $query = "SELECT COUNT(*) AS total FROM corokids WHERE telefono = ?";
+    $query = "SELECT COUNT(*) AS total FROM Corokids WHERE telefono = ?";
     $data  = $conexion->prepare($query);
     $data->bind_param("s", $telefono);
     $data->execute();
@@ -163,7 +163,7 @@ function checkIfCelExistsCoroKids($telefono, $conexion)
 
 function insertCoroKids($nombre, $edad, $telefono, $email, $conexion)
 {
-    $query =  "INSERT INTO corokids (nombre, edad, telefono, email) VALUES (?,?,?,?)";
+    $query =  "INSERT INTO Corokids (nombre, edad, telefono, email) VALUES (?,?,?,?)";
     $data  =  $conexion->prepare($query);
     $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
     $data->execute();
@@ -180,7 +180,7 @@ function insertCoroKids($nombre, $edad, $telefono, $email, $conexion)
 
 function checkIfCelExistsCoroAdultos($telefono, $conexion)
 {
-    $query = "SELECT COUNT(*) AS total FROM coroadultos WHERE telefono = ?";
+    $query = "SELECT COUNT(*) AS total FROM Coroadultos WHERE telefono = ?";
     $data  = $conexion->prepare($query);
     $data->bind_param("s", $telefono);
     $data->execute();
@@ -201,7 +201,7 @@ function checkIfCelExistsCoroAdultos($telefono, $conexion)
 
 function insertCoroAdultos($nombre, $edad, $telefono, $email, $conexion)
 {
-    $query =  "INSERT INTO coroadultos (nombre, edad, telefono, email) VALUES (?,?,?,?)";
+    $query =  "INSERT INTO Coroadultos (nombre, edad, telefono, email) VALUES (?,?,?,?)";
     $data  =  $conexion->prepare($query);
     $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
     $data->execute();

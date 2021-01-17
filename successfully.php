@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <header class="p-0 m-0 pt-3 pb-3 mb-4"><a href="index.php" data-toggle="tooltip" data-placement="top" title="Inicio">Parroquia Cristo Resucitado<a></header>
+    <header class="p-0 m-0 pt-3 pb-3 mb-4"><a href="../" data-toggle="tooltip" data-placement="top" title="Inicio">Parroquia Cristo Resucitado<a></header>
 
     <main class="container">
         <div class="row">
