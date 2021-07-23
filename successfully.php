@@ -31,18 +31,18 @@
                       <div>
                           <p class="text-center">Si lo deseas, puedes realizar otra inscripción:</p>
                           <div>
-                            <button type="button" name="botPrimeraC" id="botPrimeraC" class="btn btn-danger btn-pcr ml-3 successButtons">Primera Comunión</button>
-                            <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr ml-3 successButtons">Confirma</button>
+                            <!-- <button type="button" name="botPrimeraC" id="botPrimeraC" class="btn btn-danger btn-pcr ml-3 successButtons">Primera Comunión</button>
+                            <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr ml-3 successButtons">Confirma</button> -->
                             <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button>
-                            <button type="button" name="botCoroN"    id="botCoroN"    class="btn btn-danger btn-pcr ml-3 successButtons">Coro Niños</button>
-                            <button type="button" name="botCoroA"    id="botCoroA"    class="btn btn-danger btn-pcr ml-3 successButtons">Coro Adultos</button>
+                            <!-- <button type="button" name="botCoroN"    id="botCoroN"    class="btn btn-danger btn-pcr ml-3 successButtons">Coro Niños</button>
+                            <button type="button" name="botCoroA"    id="botCoroA"    class="btn btn-danger btn-pcr ml-3 successButtons">Coro Adultos</button> -->
                           </div>
                       </div>
 
                       <br>
                       <br>
                       <br>
-                        <p id="mediap">Síguenos para seguir participando de nuestras actividades</p>
+                        <p id="mediap">Síguenos para seguir participando de nuestras actividades o contactarnos si tienes alguna duda</p>
                         <a data-toggle="tooltip" data-placement="bottom" title="Facebook" class="btn-floating btn-lg" id="fb" type="button" role="button" href="https://es-la.facebook.com/parroquiacristoresucitadohn/"><i class="fab fa-facebook fa-2x"></i></a>
                         <a data-toggle="tooltip" data-placement="bottom" title="Twitter" class="btn-floating btn-lg" id="tw" type="button" role="button" href="https://twitter.com/cristo_hn"><i class="fab fa-twitter fa-2x"></i></a>
                         <a data-toggle="tooltip" data-placement="bottom" title="Youtube" class="btn-floating btn-lg" id="yt" type="button" role="button" href="https://www.youtube.com/channel/UCDZi5Fc70E2pPzze72SSpcw"><i class="fab fa-youtube fa-2x"></i></a>
@@ -67,20 +67,20 @@
     let botCoroA    = document.getElementById("botCoroA");
 
     //Primera Comunión Form
-    botPrimeraC.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
+    // botPrimeraC.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "comunionForm.php";
-    });
+    //     window.location = "comunionForm.php";
+    // });
 
     //Confirma Form
-    botConfirma.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
+    // botConfirma.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "confirmaForm.php";
-    });
+    //     window.location = "confirmaForm.php";
+    // });
 
     //Catequesis Adultos Form
     botCAdultos.addEventListener("click", function(e){
@@ -91,19 +91,19 @@
     });
 
     //Coro para Niños Form
-    botCoroN.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
+    // botCoroN.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "coroNinosForm.php";
-    });
+    //     window.location = "coroNinosForm.php";
+    // });
 
     //Coro para Adultos Form
-    botCoroA.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
+    // botCoroA.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "coroAdultosForm.php";
-    });
+    //     window.location = "coroAdultosForm.php";
+    // });
 
 </script>
