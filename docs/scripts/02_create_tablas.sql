@@ -20,6 +20,9 @@ CREATE TABLE `cristore_inscripciones`.`comunion` (
   `edad` VARCHAR(15) NOT NULL,
   `telefono` VARCHAR(100) NOT NULL,
   `email` VARCHAR(200) NULL,
+  `bautismo` TINYINT NULL DEFAULT 0 COMMENT '1 si va a realizar el bautismo',
+  `comunion` TINYINT NULL DEFAULT 0 COMMENT '1 si va a realizar la primera comunion', 
+  `confirma` TINYINT NULL DEFAULT 0 COMMENT '1 si va a realizar la confirma',
   PRIMARY KEY (`id`));
 
   CREATE TABLE `cristore_inscripciones`.`Coroadultos` (

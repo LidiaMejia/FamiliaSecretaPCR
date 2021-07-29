@@ -2,12 +2,32 @@
 
 require_once "./dao.php";
 
-if(isset($_POST["btnAgregar"]))
+if(isset($_POST['btnAgregar']))
 {
     $txtNombre = $_POST["txtNombre"];
     $txtEdad   = $_POST["txtEdad"];
     $txtNum    = $_POST["txtNum"];
     $txtEmail  = $_POST["txtEmail"];
+    
+    $checkBautismo = 0;
+    $checkComunion = 0;
+    $checkConfirma = 0;
+
+    //Los checkbox solo se envían al servidor si están chequeados
+    if(isset($_POST["checkBautismo"]))
+    {
+        $checkBautismo = 1;
+    }
+
+    if(isset($_POST["checkComunion"]))
+    {
+        $checkComunion = 1;
+    }
+
+    if(isset($_POST["checkConfirma"]))
+    {
+        $checkConfirma = 1;
+    }
 
     $conexion = initDB();
     $count    = checkIfCelExistsAdultos($txtNum, $conexion);
@@ -15,16 +35,16 @@ if(isset($_POST["btnAgregar"]))
     //Si aún no está registrado, se guardan los datos
     if($count == 0)
     {
-        $res = insertAdultos($txtNombre, $txtEdad, $txtNum, $txtEmail, $conexion);
+        $res = insertAdultos($txtNombre, $txtEdad, $txtNum, $txtEmail, $checkBautismo, $checkComunion, $checkConfirma, $conexion);
 
         //Error
         if($res == 1)
         {
-            echo "<script> alert('Ocurrió un error al ingresar la Inscripción. Por favor intente de nuevo.'); window.location='catequesisAdultosForm.php;</script>";
+            echo "<script> alert('Ocurrió un error al ingresar la Inscripción. Por favor intente de nuevo.'); window.location='catequesisAdultosForm.php; </script>";
         }
         else
         {
-            echo "<script>window.location='successfully.php';</script>";
+            echo "<script> window.location='successfully.php'; </script>";
         }
     }
 }
@@ -62,7 +82,7 @@ if(isset($_POST["btnAgregar"]))
                     <div class="card-body d-flex justify-content-center align-items-center flex-wrap text-center">
                         <p>Para realizar la inscripción llene los siguientes datos:</p>
 
-                        <form action="catequesisAdultosForm.php" id="adultosRegister" method="POST">
+                        <form action="catequesisAdultosForm.php" name="adultosRegister" id="adultosRegister" method="POST">
                         
                             <div class="form-row d-flex justify-content-center align-items-center flex-wrap text-center">
 
@@ -100,6 +120,30 @@ if(isset($_POST["btnAgregar"]))
                                     <input type="email" name="txtEmail" id="txtEmail" minlength="4" maxlength="100" placeholder="tucorreo@gmail.com" class="form-control"/>
                                     <div id="emailInvalid" class="d-none">Debe ingresar un correo válido</div>
                                 </div>
+
+                                <!-- Sacramentos a realizar -->
+                                <div class="col-lg-8 mb-5">
+                                    <label>Sacramentos a realizar</label>
+                                    <br/>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="checkBautismo" id="checkBautismo">
+                                        <label class="form-check-label" for="checkBautismo">Bautismo</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="checkComunion" id="checkComunion">
+                                        <label class="form-check-label" for="checkComunion">Primera Comunión</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="checkConfirma" id="checkConfirma">
+                                        <label class="form-check-label" for="checkConfirma">Confirma</label>
+                                    </div>
+
+                                    <br/>
+                                    <div id="sacramentosInvalid" class="d-none">Debe seleccionar al menos un sacramento</div>
+                                </div>
                                
                                 <div class="col-lg-8 mb-4">                                                                          
                                     <button type="submit" name="btnAgregar" id="btnAgregar" class="btn btn-primary">Realizar Inscripción</button>
@@ -108,7 +152,6 @@ if(isset($_POST["btnAgregar"]))
                         </form>
                     </div>
                 </div>
-
                 <!-- fin del Formulario -->
 
             </div>
@@ -131,23 +174,28 @@ if(isset($_POST["btnAgregar"]))
         e.preventDefault();
         e.stopPropagation();
 
-        let c = 0; //contador para errores
+        let c = 0; //Contador para errores
 
-        //para obtener los datos
-        let txtNombre     = document.getElementById("txtNombre");
-        let nombreInvalid = document.getElementById("nombreInvalid");
+        //Para obtener los datos
+        let txtNombre          = document.getElementById("txtNombre");
+        let nombreInvalid      = document.getElementById("nombreInvalid");
 
-        let txtEdad       = document.getElementById("txtEdad");
-        let EdadInvalid   = document.getElementById("EdadInvalid");
+        let txtEdad            = document.getElementById("txtEdad");
+        let EdadInvalid        = document.getElementById("EdadInvalid");
 
-        let txtNum        = document.getElementById("txtNum");
-        let celInvalid    = document.getElementById("celInvalid");
+        let txtNum             = document.getElementById("txtNum");
+        let celInvalid         = document.getElementById("celInvalid");
 
-        let txtEmail      = document.getElementById("txtEmail");
-        let emailInvalid  = document.getElementById("emailInvalid");
+        let txtEmail           = document.getElementById("txtEmail");
+        let emailInvalid       = document.getElementById("emailInvalid");
+
+        let checkBautismo      = document.getElementById("checkBautismo");
+        let checkComunion      = document.getElementById("checkComunion");
+        let checkConfirma      = document.getElementById("checkConfirma");
+        let sacramentosInvalid = document.getElementById("sacramentosInvalid");
 
 
-        //validar Nombre
+        //Validar Nombre
         if(valEmptyField(txtNombre.value) || !valName(txtNombre.value))
         {
             txtNombre.style.borderColor = "red";
@@ -190,7 +238,7 @@ if(isset($_POST["btnAgregar"]))
             celInvalid.classList.add("d-none");
         }
 
-        //valida Email
+        //Validar Email (Campo Opcional)
         if(!valEmptyField(txtEmail.value) && !valEmail(txtEmail.value))
         {
             txtEmail.style.borderColor = "red";
@@ -204,9 +252,21 @@ if(isset($_POST["btnAgregar"]))
             emailInvalid.classList.add("d-none");
         }
 
+        //Validar Sacramentos
+        if(!checkBautismo.checked && !checkComunion.checked && !checkConfirma.checked)
+        {
+            sacramentosInvalid.classList.remove("d-none");
+            sacramentosInvalid.classList.add("errorSi");
+            c++;
+        }
+        else
+        {
+            sacramentosInvalid.classList.add("d-none");
+        }
+        
         if(c == 0)
         {
-            onClick = 'document.forms['btnAgregar'].submit();'; 
+            onClick = 'document.forms['btnAgregar'].submit();';
         }
     });
 

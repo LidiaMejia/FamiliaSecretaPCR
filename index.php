@@ -101,7 +101,7 @@
                                 </br>
                                 <h6>Bautizo</h6>
                                 <ol>
-                                    <li>Partida de nacimiento original o fotocopia de la identidad.</li>
+                                    <li>Partida de nacimiento original.</li>
                                     <li>Fotocopia de la identidad de los Padrinos (se requieren 2 padrinos para este sacramento que deben estar bautizados por la Iglesia Católica).</li>
                                 </ol>
                                 </br>

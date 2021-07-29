@@ -123,11 +123,11 @@ function checkIfCelExistsAdultos($telefono, $conexion)
     }
 }
 
-function insertAdultos($nombre, $edad, $telefono, $email, $conexion)
+function insertAdultos($nombre, $edad, $telefono, $email, $bautismo, $comunion, $confirma, $conexion)
 {
-    $query =  "INSERT INTO adultos (nombre, edad, telefono, email) VALUES (?,?,?,?)";
+    $query =  "INSERT INTO adultos (nombre, edad, telefono, email, bautismo, comunion, confirma) VALUES (?,?,?,?,?,?,?)";
     $data  =  $conexion->prepare($query);
-    $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
+    $data->bind_param("sssssss", $nombre, $edad, $telefono, $email, $bautismo, $comunion, $confirma);
     $data->execute();
 
     if($conexion->error)
