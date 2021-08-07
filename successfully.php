@@ -34,6 +34,7 @@
                             <!-- <button type="button" name="botPrimeraC" id="botPrimeraC" class="btn btn-danger btn-pcr ml-3 successButtons">Primera Comunión</button>
                             <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr ml-3 successButtons">Confirma</button> -->
                             <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button>
+                            <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr ml-3 successButtons">Formación Lectores</button>
                             <!-- <button type="button" name="botCoroN"    id="botCoroN"    class="btn btn-danger btn-pcr ml-3 successButtons">Coro Niños</button>
                             <button type="button" name="botCoroA"    id="botCoroA"    class="btn btn-danger btn-pcr ml-3 successButtons">Coro Adultos</button> -->
                           </div>
@@ -60,11 +61,12 @@
 
 <script>
 
-    let botPrimeraC = document.getElementById("botPrimeraC");
-    let botConfirma = document.getElementById("botConfirma");
+    // let botPrimeraC = document.getElementById("botPrimeraC");
+    // let botConfirma = document.getElementById("botConfirma");
     let botCAdultos = document.getElementById("botCAdultos");
-    let botCoroN    = document.getElementById("botCoroN");
-    let botCoroA    = document.getElementById("botCoroA");
+    let botLectores = document.getElementById("botLectores")
+    // let botCoroN    = document.getElementById("botCoroN");
+    // let botCoroA    = document.getElementById("botCoroA");
 
     //Primera Comunión Form
     // botPrimeraC.addEventListener("click", function(e){
@@ -88,6 +90,14 @@
         e.stopPropagation();
 
         window.location = "catequesisAdultosForm.php";
+    });
+
+    //Formación Lectores Form
+    botLectores.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "formacionLectoresForm.php";
     });
 
     //Coro para Niños Form

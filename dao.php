@@ -140,6 +140,44 @@ function insertAdultos($nombre, $edad, $telefono, $email, $bautismo, $comunion, 
     }
 }
 
+function checkIfCelExistsLectores($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM lectores WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertLectores($nombre, $edad, $telefono, $email, $conexion)
+{
+    $query =  "INSERT INTO lectores (nombre, edad, telefono, email) VALUES (?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 function checkIfCelExistsCoroKids($telefono, $conexion)
 {
     $query = "SELECT COUNT(*) AS total FROM Corokids WHERE telefono = ?";

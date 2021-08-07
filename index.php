@@ -50,27 +50,43 @@
 
                 <div class="d-flex justify-content-center align-items-center flex-wrap text-center">
                     <img src="imgs/LogoParroquia.png" class="img-fluid logo" alt="Logo de la Parroquia" />
-                    <h3>Inscripciones a Catequesis de Adultos 2021</h3>
+                    <h3>Inscripciones 2021</h3>
                 </div>
 
-                <div class="row">
-                    <!-- <p class="mt-3 text-center">Seleccione la actividad a la cual desea inscribirse:</p> -->
+                <p class="mt-3 text-center">Seleccione la actividad a la cual desea inscribirse:</p>
 
-                    <!-- <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="row"> 
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+
                         <div class="col mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
-                            <img src="imgs/CatequesisComunión.jpg" class="card-img-top" alt="Niña recibiendo la Santa Comunión">
+                                <img src="imgs/CatequesisAdultos.png" class="card-img-top" alt="Hombre recibiendo el Bautismo">
+                                <div class="card-body">
+                                    <br/>
+                                    <h5 class="card-title text-center">Catequesis para Adultos</h5>
+                                    <br/>
+                                    <p class="card-text"></p> 
+                                </div class="card-footer">
+                                <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
+                                </div>
+                            </div>
+                        
+
+                        <div class="col mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                            <img src="imgs/FormacionLectores.JPG" class="card-img-top" alt="Lector en la Santa Eucaristía">
                             <div class="card-body">
                                 <br/>
-                                <h5 class="card-title text-center">Catequesis de Primera Comunión</h5>
-                                <br/> -->
-                    <!-- <p class="card-text"></p> -->
-                    <!-- </div class="card-footer">
-                                <button type="button" name="botPrimeraC" id="botPrimeraC" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
+                                <h5 class="card-title text-center">Formación de Lectores</h5>
+                                <br/>
+                                <p class="card-text"></p>
+                                </div class="card-footer">
+                                <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
                             </div>
-                        </div> -->
+                        </div>
+                        
 
-                    <!-- <div class="col mb-4 inscripcionCardContainer">
+                        <!-- <div class="col mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
                             <img src="imgs/CatequesisConfirma.jpg" class="card-img-top" alt="Joven recibiendo la bendición con aceite ungido">
                             <div class="card-body">
@@ -82,47 +98,48 @@
                             </div>
                         </div> -->
 
-                    <div class="col-md-6 mb-4 inscripcionCardContainer">
-                        <div class="card inscripcionCard h-50">
-                            <img src="imgs/CatequesisAdultos.png" class="card-img-top" alt="Hombre recibiendo el Bautismo">
-                            <div class="card-body">
-                                <!-- <br/>
-                                <h5 class="card-title text-center">Catequesis para Adultos</h5>
-                                <br/> -->
-                            </div class="card-footer">
-                            <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr" style="height: 50px; font-size: 20px;">INSCRIBIRSE</button>
-                        </div>
-                    </div>
+                        <!-- <div class="col-md-6 mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-50">
+                                <img src="imgs/CatequesisConfirma.jpg" class="card-img-top" alt="Joven recibiendo la bendición con aceite ungido">
+                                <div class="card-body">
+                                    <br/>
+                                    <h5 class="card-title text-center">Catequesis de Confirma</h5>
+                                    <br/>
+                                </div class="card-footer">
+                                    <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
+                                </div>
+                            </div>
+                        </div> -->
 
-                    <div class="col-md-6 mb-4 inscripcionCardContainer">
-                        <div class="card inscripcionCard h-100">
-                            <div class="card-body">
-                                <h5 class="text-center">DOCUMENTOS REQUERIDOS PARA REALIZAR LOS SACRAMENTOS</h5>
-                                </br>
-                                <h6>Bautizo</h6>
-                                <ol>
-                                    <li>Partida de nacimiento original.</li>
-                                    <li>Fotocopia de la identidad de los Padrinos (se requieren 2 padrinos para este sacramento que deben estar bautizados por la Iglesia Católica).</li>
-                                </ol>
-                                </br>
-                                <h6>Comunión</h6>
-                                <ol>
-                                    <li>Fe de bautismo original.</li>
-                                    <li>Partida de nacimiento original o fotocopia de la identidad.</li>
-                                    <li>Para este sacramento no se necesitan padrinos.</li>
-                                    <li>En caso de ser IMPOSIBLE tener la fe de bautismo, solicitar una “Constancia de Suplatoria” que se solicita en la parroquia donde se bautizaron llevando la evidencia del sacramento (fotografía o el testimonio de personas que puedan dar fe que se realizó el sacramento).</li>
-                                </ol>
-                                </br>
-                                <h6>Confirma</h6>
-                                <ol>
-                                    <li>Partida de nacimiento original o fotocopia de la identidad.</li>
-                                    <li>Fe de bautismo original (si se van a casar en la Parroquia Cristo Resucitado, la misma que traen para el expediente de matrimonio, se puede utilizar para este sacramento y el de la Comunión).</li>
-                                    <li>Fotocopia de la identidad del padrino o madrina (para este sacramente solamente se requiere un padrino, varón para los varones y mujer para las mujeres; también, debe estar bautizado por la Iglesia Católica. Puede ser el mismo padrino o madrina del Bautizo.</li>
-                                    <li>Constancia de haber realizado la Primera Comunión (esta constancia la deben solicitar en la parroquia donde realizaron el sacramento, si por algún motivo no es posible tener esta constancia, deben traer alguna evidencia de haber realizado el sacramento, fotografías, por ejemplo).</li>
-                                </ol>
+                        <div class="col-md-12 mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                                <div class="card-body">
+                                    <h5 class="text-center">DOCUMENTOS REQUERIDOS PARA REALIZAR LOS SACRAMENTOS</h5>
+                                    </br>
+                                    <h6>Bautizo</h6>
+                                    <ol>
+                                        <li>Partida de nacimiento original.</li>
+                                        <li>Fotocopia de la identidad de los Padrinos (se requieren 2 padrinos para este sacramento que deben estar bautizados por la Iglesia Católica).</li>
+                                    </ol>
+                                    </br>
+                                    <h6>Comunión</h6>
+                                    <ol>
+                                        <li>Fe de bautismo original.</li>
+                                        <li>Partida de nacimiento original o fotocopia de la identidad.</li>
+                                        <li>Para este sacramento no se necesitan padrinos.</li>
+                                        <li>En caso de ser IMPOSIBLE tener la fe de bautismo, solicitar una “Constancia de Suplatoria” que se solicita en la parroquia donde se bautizaron llevando la evidencia del sacramento (fotografía o el testimonio de personas que puedan dar fe que se realizó el sacramento).</li>
+                                    </ol>
+                                    </br>
+                                    <h6>Confirma</h6>
+                                    <ol>
+                                        <li>Partida de nacimiento original o fotocopia de la identidad.</li>
+                                        <li>Fe de bautismo original (si se van a casar en la Parroquia Cristo Resucitado, la misma que traen para el expediente de matrimonio, se puede utilizar para este sacramento y el de la Comunión).</li>
+                                        <li>Fotocopia de la identidad del padrino o madrina (para este sacramente solamente se requiere un padrino, varón para los varones y mujer para las mujeres; también, debe estar bautizado por la Iglesia Católica. Puede ser el mismo padrino o madrina del Bautizo.</li>
+                                        <li>Constancia de haber realizado la Primera Comunión (esta constancia la deben solicitar en la parroquia donde realizaron el sacramento, si por algún motivo no es posible tener esta constancia, deben traer alguna evidencia de haber realizado el sacramento, fotografías, por ejemplo).</li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                     <!-- <div class="col mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
@@ -195,7 +212,7 @@
                     </div>
                 </div> -->
             <!-- Fin Card que contiene el formulario -->
-        </div>
+            </div>
         </div>
     </main>
 
@@ -207,11 +224,12 @@
 
 <script>
     //let botAgregar  = document.getElementById("botAgregar");
-    let botPrimeraC = document.getElementById("botPrimeraC");
-    let botConfirma = document.getElementById("botConfirma");
+    //let botPrimeraC = document.getElementById("botPrimeraC");
+    //let botConfirma = document.getElementById("botConfirma");
     let botCAdultos = document.getElementById("botCAdultos");
-    let botCoroN = document.getElementById("botCoroN");
-    let botCoroA = document.getElementById("botCoroA");
+    let botLectores = document.getElementById("botLectores");
+    //let botCoroN    = document.getElementById("botCoroN");
+    //let botCoroA    = document.getElementById("botCoroA");
 
     //Primera Comunión Form
     // botPrimeraC.addEventListener("click", function(e){
@@ -235,6 +253,14 @@
         e.stopPropagation();
 
         window.location = "catequesisAdultosForm.php";
+    });
+
+    //Formación de Lectores
+    botLectores.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        window.location = "formacionLectoresForm.php";
     });
 
     //Coro para Niños Form
