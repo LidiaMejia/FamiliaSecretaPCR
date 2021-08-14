@@ -140,44 +140,6 @@ function insertAdultos($nombre, $edad, $telefono, $email, $bautismo, $comunion, 
     }
 }
 
-function checkIfCelExistsLectores($telefono, $conexion)
-{
-    $query = "SELECT COUNT(*) AS total FROM lectores WHERE telefono = ?";
-    $data  = $conexion->prepare($query);
-    $data->bind_param("s", $telefono);
-    $data->execute();
-    $result = $data->get_result();
-
-    if($conexion->error)
-    {
-        return 1;
-    }
-    else
-    {
-        $count = mysqli_fetch_array($result);
-
-        $result->free(); //Liberar la memoria asociada con el resultado
-        return $count[0];
-    }
-}
-
-function insertLectores($nombre, $edad, $telefono, $email, $conexion)
-{
-    $query =  "INSERT INTO lectores (nombre, edad, telefono, email) VALUES (?,?,?,?)";
-    $data  =  $conexion->prepare($query);
-    $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
-    $data->execute();
-
-    if($conexion->error)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
 function checkIfCelExistsCoroKids($telefono, $conexion)
 {
     $query = "SELECT COUNT(*) AS total FROM Corokids WHERE telefono = ?";
@@ -242,6 +204,120 @@ function insertCoroAdultos($nombre, $edad, $telefono, $email, $conexion)
     $query =  "INSERT INTO Coroadultos (nombre, edad, telefono, email) VALUES (?,?,?,?)";
     $data  =  $conexion->prepare($query);
     $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function checkIfCelExistsLectores($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM lectores WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertLectores($nombre, $edad, $telefono, $email, $conexion)
+{
+    $query =  "INSERT INTO lectores (nombre, edad, telefono, email) VALUES (?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssss", $nombre, $edad, $telefono, $email);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function checkIfCelExistsMatrimonios($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM matrimonios WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertMatrimonios($txtNombre, $txtTiempoCasados, $txtNum, $txtEmail, $selectSector, $conexion)
+{
+    $query =  "INSERT INTO matrimonios (nombre_pareja, tiempo_casados, telefono, email, sector) VALUES (?,?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("sssss", $txtNombre, $txtTiempoCasados, $txtNum, $txtEmail, $selectSector);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function checkIfCelExistsFamilias($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM familias WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertFamilias($txtNombre, $txtNum, $txtEmail, $txtMensaje, $plantillaTarjeta, $conexion)
+{
+    $query =  "INSERT INTO familias (nombre_familia, telefono, email, mensaje_tarjeta, plantilla_tarjeta) VALUES (?,?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("sssss", $txtNombre, $txtNum, $txtEmail, $txtMensaje, $plantillaTarjeta);
     $data->execute();
 
     if($conexion->error)

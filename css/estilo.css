@@ -227,6 +227,38 @@ p{
 
 
 
+/*---------- TARJETAS DE ESPERANZA  -------------------*/	
+
+.cont-tarjetas {
+	margin-top: 0px;
+	margin-bottom: 2em;
+    padding: 0px;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.sec-tarjetas .cont-tarjetas li{
+	margin: 1em;
+	position: relative;
+}
+
+.sec-tarjetas .cont-tarjetas li img{
+	width: 100%;
+	margin: auto;
+	border-radius: 3%;
+	box-shadow: 4px 4px 8px #888;
+	transition: 0.25s ease-in-out filter;
+}
+
+.radio-button-container {
+    margin-bottom: 0.5em;
+}
+
+/*---------- FIN TARJETAS DE ESPERANZA  -------------------*/
+
+
 /* PARA LA TARJETA DE AGRADECIMIENTO */
 #card-headerCheck{
     border-bottom: none;

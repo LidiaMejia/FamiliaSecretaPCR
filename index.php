@@ -38,7 +38,7 @@
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
 
-    <title>Catequesis 2021 PCR</title>
+    <title>Inscripciones 2021 PCR</title>
 </head>
 
 <body>
@@ -64,52 +64,47 @@
                                 <div class="card-body">
                                     <br/>
                                     <h5 class="card-title text-center">Catequesis para Adultos</h5>
-                                    <br/>
-                                    <p class="card-text"></p> 
-                                </div class="card-footer">
-                                <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
+                                    <br/>         
                                 </div>
+                                <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
                             </div>
-                        
+                        </div>
 
                         <div class="col mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
-                            <img src="imgs/FormacionLectores.JPG" class="card-img-top" alt="Lector en la Santa Eucaristía">
-                            <div class="card-body">
-                                <br/>
-                                <h5 class="card-title text-center">Formación de Lectores</h5>
-                                <br/>
-                                <p class="card-text"></p>
-                                </div class="card-footer">
-                                <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
-                            </div>
-                        </div>
-                        
-
-                        <!-- <div class="col mb-4 inscripcionCardContainer">
-                            <div class="card inscripcionCard h-100">
-                            <img src="imgs/CatequesisConfirma.jpg" class="card-img-top" alt="Joven recibiendo la bendición con aceite ungido">
-                            <div class="card-body">
-                                <br/>
-                                <h5 class="card-title text-center">Catequesis de Confirma</h5>
-                                <br/>
-                            </div class="card-footer">
-                                <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="col-md-6 mb-4 inscripcionCardContainer">
-                            <div class="card inscripcionCard h-50">
-                                <img src="imgs/CatequesisConfirma.jpg" class="card-img-top" alt="Joven recibiendo la bendición con aceite ungido">
+                                <img src="imgs/FormacionLectores.jpg" class="card-img-top" alt="Lector en la Santa Eucaristía">
                                 <div class="card-body">
                                     <br/>
-                                    <h5 class="card-title text-center">Catequesis de Confirma</h5>
+                                    <h5 class="card-title text-center">Formación de Lectores</h5>
                                     <br/>
-                                </div class="card-footer">
-                                    <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
                                 </div>
+                                <button type="button" name="botLectores" id="botLectores" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
                             </div>
-                        </div> -->
+                        </div>
+
+                        <div class="col mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                                <img src="imgs/matrimonio.jpg" class="card-img-top" alt="Manos de esposos juntas">
+                                <div class="card-body">
+                                    <br/>
+                                    <h5 class="card-title text-center">Renovación de Votos Matrimoniales</h5>
+                                    <br/>
+                                </div>
+                                <button type="button" name="botRenovacionVotos" id="botRenovacionVotos" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                                <img src="imgs/familia.png" class="card-img-top" alt="Sagrada Familia de Nazaret">
+                                <div class="card-body">
+                                    <br/>
+                                    <h5 class="card-title text-center">Tarjeta de Esperanza para mi Familia Secreta</h5>
+                                    <br/>
+                                </div>
+                                <button type="button" name="botFamilia" id="botFamilia" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
+                            </div>
+                        </div>
 
                         <div class="col-md-12 mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
@@ -134,38 +129,15 @@
                                     <ol>
                                         <li>Partida de nacimiento original o fotocopia de la identidad.</li>
                                         <li>Fe de bautismo original (si se van a casar en la Parroquia Cristo Resucitado, la misma que traen para el expediente de matrimonio, se puede utilizar para este sacramento y el de la Comunión).</li>
-                                        <li>Fotocopia de la identidad del padrino o madrina (para este sacramente solamente se requiere un padrino, varón para los varones y mujer para las mujeres; también, debe estar bautizado por la Iglesia Católica. Puede ser el mismo padrino o madrina del Bautizo.</li>
+                                        <li>Fotocopia de la identidad del padrino o madrina (para este sacramento solamente se requiere un padrino, varón para los varones y mujer para las mujeres; también, debe estar bautizado por la Iglesia Católica. Puede ser el mismo padrino o madrina del Bautizo.</li>
                                         <li>Constancia de haber realizado la Primera Comunión (esta constancia la deben solicitar en la parroquia donde realizaron el sacramento, si por algún motivo no es posible tener esta constancia, deben traer alguna evidencia de haber realizado el sacramento, fotografías, por ejemplo).</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
 
-                    <!-- <div class="col mb-4 inscripcionCardContainer">
-                            <div class="card inscripcionCard h-100">
-                            <img src="imgs/CoroNiños.jpg" class="card-img-top" alt="Niños cantando en el coro">
-                            <div class="card-body">
-                                <br/>
-                                <h5 class="card-title text-center">Coro para Niños</h5>
-                                <br/>
-                            </div class="card-footer">
-                                <button type="button" name="botCoroN" id="botCoroN" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
-                            </div>
-                        </div>
-
-                        <div class="col mb-4 inscripcionCardContainer">
-                            <div class="card inscripcionCard h-100">
-                            <img src="imgs/CoroAdultos.jpg" class="card-img-top" alt="Personas cantando en un coro">
-                            <div class="card-body">
-                                <br/>
-                                <h5 class="card-title text-center">Coro para Adultos</h5>
-                                <br/>
-                            </div class="card-footer">
-                                <button type="button" name="botCoroA" id="botCoroA" class="btn btn-danger btn-pcr">INSCRIBIRSE</button>
-                            </div>
-                        </div> -->
+                    </div>
                 </div>
-            </div>
 
             <!-- Card que contiene el formulario. p = padding  mb = margin-bottom  d-none = display: none -->
             <!-- <div class="card shadow-lg p-3 mb-5 bg-white">
@@ -223,31 +195,12 @@
 </html>
 
 <script>
-    //let botAgregar  = document.getElementById("botAgregar");
-    //let botPrimeraC = document.getElementById("botPrimeraC");
-    //let botConfirma = document.getElementById("botConfirma");
-    let botCAdultos = document.getElementById("botCAdultos");
-    let botLectores = document.getElementById("botLectores");
-    //let botCoroN    = document.getElementById("botCoroN");
-    //let botCoroA    = document.getElementById("botCoroA");
+    let botCAdultos        = document.getElementById("botCAdultos");
+    let botLectores        = document.getElementById("botLectores");
+    let botFamilia         = document.getElementById("botFamilia");
+    let botRenovacionVotos = document.getElementById("botRenovacionVotos");
 
-    //Primera Comunión Form
-    // botPrimeraC.addEventListener("click", function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
-
-    //     window.location = "comunionForm.php";
-    // });
-
-    //Confirma Form
-    // botConfirma.addEventListener("click", function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
-
-    //     window.location = "confirmaForm.php";
-    // });
-
-    //Catequesis Adultos Form
+    //Catequesis Adultos
     botCAdultos.addEventListener("click", function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -263,21 +216,21 @@
         window.location = "formacionLectoresForm.php";
     });
 
-    //Coro para Niños Form
-    // botCoroN.addEventListener("click", function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
+    //Tarjetas Familias
+    botFamilia.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
 
-    //     window.location = "coroNinosForm.php";
-    // });
+        window.location = "tarjetasFamiliasForm.php";
+    });
 
-    //Coro para Adultos Form
-    // botCoroA.addEventListener("click", function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
+    //Renovación de Votos Matrimoniales
+    botRenovacionVotos.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
 
-    //     window.location = "coroAdultosForm.php";
-    // });
+        window.location = "renovacionVotosForm.php";
+    });
 
     //Click Botón
     // botAgregar.addEventListener("click", function(e)
