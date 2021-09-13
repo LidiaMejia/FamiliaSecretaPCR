@@ -330,6 +330,48 @@ function insertFamilias($txtNombre, $txtNum, $txtEmail, $txtMensaje, $plantillaT
     }
 }
 
+function checkIfMonaguilloExists($nombre_nino, $nombre_madre, $nombre_padre, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM monaguillos WHERE nombre_nino = ? AND nombre_madre = ? AND nombre_padre = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("sss", $nombre_nino, $nombre_madre, $nombre_padre);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertMonaguillos($nombre_nino, $edad_nino, $nombre_madre, $telefono_madre, $nombre_padre, $telefono_padre, 
+                           $parroquia_bautismo, $fecha_bautismo, $parroquia_comunion, $fecha_comunion, $conexion)
+{
+    $query =  "INSERT INTO monaguillos (nombre_nino, edad_nino, nombre_madre, telefono_madre, nombre_padre, telefono_padre,
+                                        parroquia_bautismo, fecha_bautismo, parroquia_comunion, fecha_comunion)
+                                        VALUES (?,?,?,?,?,?,?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssssssssss", $nombre_nino, $edad_nino, $nombre_madre, $telefono_madre, $nombre_padre, $telefono_padre,
+                                    $parroquia_bautismo, $fecha_bautismo, $parroquia_comunion, $fecha_comunion);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 // function getFamilias($conexion)
 // {
 //     $query  = "SELECT * FROM familias;";

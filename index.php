@@ -1,28 +1,28 @@
-<!-- <?php
+<?php
 
-        require_once "./dao.php";
+    // require_once "./dao.php";
 
-        //Obtener datos
-        if (isset($_POST["botAgregar"])) {
-            $txtApellidos  = $_POST["txtApellidos"];
-            $txtCel        = $_POST["txtCel"];
-            $txtEmail      = $_POST["txtEmail"];
-            $selectCapilla = $_POST["selectCapilla"];
+    // //Obtener datos
+    // if (isset($_POST["botAgregar"])) {
+    //     $txtApellidos  = $_POST["txtApellidos"];
+    //     $txtCel        = $_POST["txtCel"];
+    //     $txtEmail      = $_POST["txtEmail"];
+    //     $selectCapilla = $_POST["selectCapilla"];
 
-            //echo $txtApellidos. " " .$txtCel. " " .$txtEmail. " " .$selectCapilla;
+    //     //echo $txtApellidos. " " .$txtCel. " " .$txtEmail. " " .$selectCapilla;
 
-            $conexion = initDB();
-            $res = insertFamilia($txtApellidos, $txtCel, $txtEmail, $selectCapilla, $conexion);
+    //     $conexion = initDB();
+    //     $res = insertFamilia($txtApellidos, $txtCel, $txtEmail, $selectCapilla, $conexion);
 
-            //Si hay error
-            if ($res == 1) {
-                echo "<script>alert('Ocurrió un error al ingresar la familia'); window.location='index.php';</script>";
-            } else {
-                echo "<script>window.location='successfully.php';</script>";
-            }
-        }
+    //     //Si hay error
+    //     if ($res == 1) {
+    //         echo "<script>alert('Ocurrió un error al ingresar la familia'); window.location='index.php';</script>";
+    //     } else {
+    //         echo "<script>window.location='successfully.php';</script>";
+    //     }
+    // }
 
-        ?> -->
+?>
 
 
 <!DOCTYPE html>
@@ -55,10 +55,11 @@
 
                 <p class="mt-3 text-center">Seleccione la actividad a la cual desea inscribirse:</p>
 
-                <div class="row"> 
-                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                <!-- class="row row-cols-1 row-cols-md-2 g-4" -->
+                <div class="container"> 
+                    <div class="row justify-content-center align-items-center"> 
 
-                        <div class="col mb-4 inscripcionCardContainer">
+                        <!-- <div class="col mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
                                 <img src="imgs/CatequesisAdultos.png" class="card-img-top" alt="Hombre recibiendo el Bautismo">
                                 <div class="card-body">
@@ -68,9 +69,9 @@
                                 </div>
                                 <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col mb-4 inscripcionCardContainer">
+                        <!-- <div class="col mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
                                 <img src="imgs/FormacionLectores.jpg" class="card-img-top" alt="Lector en la Santa Eucaristía">
                                 <div class="card-body">
@@ -80,9 +81,9 @@
                                 </div>
                                 <button type="button" name="botLectores" id="botLectores" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col mb-4 inscripcionCardContainer">
+                        <!-- <div class="col mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
                                 <img src="imgs/matrimonio.jpg" class="card-img-top" alt="Manos de esposos juntas">
                                 <div class="card-body">
@@ -92,9 +93,9 @@
                                 </div>
                                 <button type="button" name="botRenovacionVotos" id="botRenovacionVotos" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col mb-4 inscripcionCardContainer">
+                        <!-- <div class="col mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
                                 <img src="imgs/familia.png" class="card-img-top" alt="Sagrada Familia de Nazaret">
                                 <div class="card-body">
@@ -104,9 +105,21 @@
                                 </div>
                                 <button type="button" name="botFamilia" id="botFamilia" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
                             </div>
+                        </div> -->
+
+                        <div class="col-6 mb-4 inscripcionCardContainer">
+                            <div class="card inscripcionCard h-100">
+                                <img src="imgs/Monaguillos.png" class="card-img-top" alt="Envío de Monaguillos Parroquia Cristo Resucitado">
+                                <div class="card-body">
+                                    <br/>
+                                    <h5 class="card-title text-center">Formación de Monaguillos</h5>
+                                    <br/>
+                                </div>
+                                <button type="button" name="botMonaguillos" id="botMonaguillos" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
+                            </div>
                         </div>
 
-                        <div class="col-md-12 mb-4 inscripcionCardContainer">
+                        <!-- <div class="col-md-12 mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
                                 <div class="card-body">
                                     <h5 class="text-center">DOCUMENTOS REQUERIDOS PARA REALIZAR LOS SACRAMENTOS</h5>
@@ -134,7 +147,7 @@
                                     </ol>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -195,42 +208,51 @@
 </html>
 
 <script>
-    let botCAdultos        = document.getElementById("botCAdultos");
-    let botLectores        = document.getElementById("botLectores");
-    let botFamilia         = document.getElementById("botFamilia");
-    let botRenovacionVotos = document.getElementById("botRenovacionVotos");
+    //let botCAdultos        = document.getElementById("botCAdultos");
+    //let botLectores        = document.getElementById("botLectores");
+    //let botFamilia           = document.getElementById("botFamilia");
+    let botMonaguillos       = document.getElementById("botMonaguillos");
+    //let botRenovacionVotos = document.getElementById("botRenovacionVotos");
 
     //Catequesis Adultos
-    botCAdultos.addEventListener("click", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    // botCAdultos.addEventListener("click", function(e) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "catequesisAdultosForm.php";
-    });
+    //     window.location = "catequesisAdultosForm.php";
+    // });
 
     //Formación de Lectores
-    botLectores.addEventListener("click", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    // botLectores.addEventListener("click", function(e) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "formacionLectoresForm.php";
-    });
+    //     window.location = "formacionLectoresForm.php";
+    // });
 
     //Tarjetas Familias
-    botFamilia.addEventListener("click", function(e){
+    // botFamilia.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+
+    //     window.location = "tarjetasFamiliasForm.php";
+    // });
+
+    //Monaguillos
+    botMonaguillos.addEventListener("click", function(e){
         e.preventDefault();
         e.stopPropagation();
 
-        window.location = "tarjetasFamiliasForm.php";
+        window.location = "monaguillosForm.php";
     });
 
     //Renovación de Votos Matrimoniales
-    botRenovacionVotos.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
+    // botRenovacionVotos.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "renovacionVotosForm.php";
-    });
+    //     window.location = "renovacionVotosForm.php";
+    // });
 
     //Click Botón
     // botAgregar.addEventListener("click", function(e)

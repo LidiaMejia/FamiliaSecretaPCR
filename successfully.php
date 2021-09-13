@@ -31,10 +31,11 @@
                       <div>
                           <p class="text-center">Si lo deseas, puedes realizar otra inscripción:</p>
                           <div>
-                            <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button>
+                            <!-- <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button>
                             <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr ml-3 successButtons">Formación Lectores</button>
-                            <button type="button" name="botRenovacionVotos" id="botRenovacionVotos" class="btn btn-danger btn-pcr ml-3 successButtons">Renovación de Votos Matrimoniales</button>
-                            <button type="button" name="botTarjetasFamilia" id="botTarjetasFamilia" class="btn btn-danger btn-pcr ml-3 successButtons">Tarjeta de Esperanza</button>
+                            <button type="button" name="botRenovacionVotos" id="botRenovacionVotos" class="btn btn-danger btn-pcr ml-3 successButtons">Renovación de Votos Matrimoniales</button> 
+                            <button type="button" name="botTarjetasFamilia" id="botTarjetasFamilia" class="btn btn-danger btn-pcr ml-3 successButtons">Tarjeta de Esperanza</button> -->
+                            <button type="button" name="botMonaguillos" id="botMonaguillos" class="btn btn-danger btn-pcr ml-3 successButtons">Monaguillos</button>
                           </div>
                       </div>
 
@@ -58,41 +59,50 @@
 </html>
 
 <script>
-    let botCAdultos        = document.getElementById("botCAdultos");
-    let botLectores        = document.getElementById("botLectores");
-    let botRenovacionVotos = document.getElementById("botRenovacionVotos");
-    let botTarjetasFamilia = document.getElementById("botTarjetasFamilia");
+    //let botCAdultos        = document.getElementById("botCAdultos");
+    //let botLectores        = document.getElementById("botLectores");
+    //let botRenovacionVotos = document.getElementById("botRenovacionVotos");
+    //let botTarjetasFamilia = document.getElementById("botTarjetasFamilia");
+    let botMonaguillos     = document.getElementById("botMonaguillos");
 
-    //Catequesis Adultos Form
-    botCAdultos.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
+    // //Catequesis Adultos Form
+    // botCAdultos.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "catequesisAdultosForm.php";
-    });
+    //     window.location = "catequesisAdultosForm.php";
+    // });
 
-    //Formación Lectores Form
-    botLectores.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
+    // //Formación Lectores Form
+    // botLectores.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "formacionLectoresForm.php";
-    });
+    //     window.location = "formacionLectoresForm.php";
+    // });
 
-    //Renovación de Votos Matrimoniales
-    botRenovacionVotos.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
+    // //Renovación de Votos Matrimoniales
+    // botRenovacionVotos.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        window.location = "renovacionVotosForm.php";
-    });
+    //     window.location = "renovacionVotosForm.php";
+    // });
 
     //Tarjeta de Esperanza
-    botTarjetasFamilia.addEventListener("click", function(e){
+    // botTarjetasFamilia.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+
+    //     window.location = "tarjetasFamiliasForm.php";
+    // });
+
+    //Monaguillos
+    botMonaguillos.addEventListener("click", function(e){
         e.preventDefault();
         e.stopPropagation();
 
-        window.location = "tarjetasFamiliasForm.php";
+        window.location = "monaguillosForm.php";
     });
 
 </script>
