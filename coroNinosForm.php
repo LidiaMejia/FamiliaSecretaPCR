@@ -40,7 +40,7 @@ if(isset($_POST["btnAgregar"]))
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/estilo.css"/>
     <script src="js/validators.js"></script>
-    <title>Coro para Niños</title>
+    <title>Coro Navideño Infantil</title>
 </head>
 
 <body>
@@ -56,7 +56,7 @@ if(isset($_POST["btnAgregar"]))
                         <img src="imgs/LogoParroquia.png" class="img-logo-alone" alt="Logo de la Parroquia"/>
                     </div>
                     <div class="card-header text-center h1-form">
-                        <h1>Inscripción de Coro para Niños</h1>
+                        <h1>Inscripción de Coro Navideño Infantil</h1>
                     </div>
 
                     <div class="card-body d-flex justify-content-center align-items-center flex-wrap text-center">

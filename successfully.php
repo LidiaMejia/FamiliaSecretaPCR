@@ -20,28 +20,28 @@
                 <div class="card shadow-lg p-3 mb-5 bg-white">
                     <div class="card-header" id="card-headerCheck">
                         <br>
-                        <img src="imgs/clipboard.png" class="mx-auto d-block" id="check" alt="Ícono de libreta con cheque verde. Hecho por smashicons.com en flaticon.com"/>
+                        <img src="imgs/clipboard.png" class="mx-auto d-block" id="check" alt="Ícono de libreta con cheque verde. Hecho por smashicons.com en flaticon.com" />
                     </div>
                     <div class="card-body">
                         <h2>¡GRACIAS POR REALIZAR TU INSCRIPCIÓN!</h2>
                     </div>
                     <div class="card-footer">
-                      <br>
+                        <br>
 
-                      <div>
-                          <p class="text-center">Si lo deseas, puedes realizar otra inscripción:</p>
-                          <div>
-                            <!-- <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button>
+                        <div>
+                            <p class="text-center">Si lo deseas, puedes realizar otra inscripción:</p>
+                            <div>
+                                <!-- <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button>
                             <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr ml-3 successButtons">Formación Lectores</button>
                             <button type="button" name="botRenovacionVotos" id="botRenovacionVotos" class="btn btn-danger btn-pcr ml-3 successButtons">Renovación de Votos Matrimoniales</button> 
                             <button type="button" name="botTarjetasFamilia" id="botTarjetasFamilia" class="btn btn-danger btn-pcr ml-3 successButtons">Tarjeta de Esperanza</button> -->
-                            <button type="button" name="botMonaguillos" id="botMonaguillos" class="btn btn-danger btn-pcr ml-3 successButtons">Monaguillos</button>
-                          </div>
-                      </div>
+                                <button type="button" name="botMonaguillos" id="botMonaguillos" class="btn btn-danger btn-pcr ml-3 successButtons">Coro Navideño Infantil</button>
+                            </div>
+                        </div>
 
-                      <br>
-                      <br>
-                      <br>
+                        <br>
+                        <br>
+                        <br>
                         <p id="mediap">Síguenos para seguir participando de nuestras actividades o contactarnos si tienes alguna duda</p>
                         <a data-toggle="tooltip" data-placement="bottom" title="Facebook" class="btn-floating btn-lg" id="fb" type="button" role="button" href="https://es-la.facebook.com/parroquiacristoresucitadohn/"><i class="fab fa-facebook fa-2x"></i></a>
                         <a data-toggle="tooltip" data-placement="bottom" title="Twitter" class="btn-floating btn-lg" id="tw" type="button" role="button" href="https://twitter.com/cristo_hn"><i class="fab fa-twitter fa-2x"></i></a>
@@ -63,7 +63,7 @@
     //let botLectores        = document.getElementById("botLectores");
     //let botRenovacionVotos = document.getElementById("botRenovacionVotos");
     //let botTarjetasFamilia = document.getElementById("botTarjetasFamilia");
-    let botMonaguillos     = document.getElementById("botMonaguillos");
+    let botMonaguillos = document.getElementById("botMonaguillos");
 
     // //Catequesis Adultos Form
     // botCAdultos.addEventListener("click", function(e){
@@ -98,11 +98,10 @@
     // });
 
     //Monaguillos
-    botMonaguillos.addEventListener("click", function(e){
+    botMonaguillos.addEventListener("click", function(e) {
         e.preventDefault();
         e.stopPropagation();
 
-        window.location = "monaguillosForm.php";
+        window.location = "coroNinosForm.php";
     });
-
 </script>

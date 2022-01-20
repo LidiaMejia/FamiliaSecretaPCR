@@ -109,10 +109,10 @@
 
                         <div class="col-6 mb-4 inscripcionCardContainer">
                             <div class="card inscripcionCard h-100">
-                                <img src="imgs/Monaguillos.png" class="card-img-top" alt="Envío de Monaguillos Parroquia Cristo Resucitado">
+                                <img src="imgs/coroNavidad.jpg" class="card-img-top" alt="Decoración en árbol de navidad en forma de nota musical">
                                 <div class="card-body">
                                     <br/>
-                                    <h5 class="card-title text-center">Formación de Monaguillos</h5>
+                                    <h5 class="card-title text-center">Coro Navideño Infantil</h5>
                                     <br/>
                                 </div>
                                 <button type="button" name="botMonaguillos" id="botMonaguillos" class="btn btn-block btn-danger btn-pcr">INSCRIBIRSE</button>
@@ -243,7 +243,7 @@
         e.preventDefault();
         e.stopPropagation();
 
-        window.location = "monaguillosForm.php";
+        window.location = "coroNinosForm.php";
     });
 
     //Renovación de Votos Matrimoniales
