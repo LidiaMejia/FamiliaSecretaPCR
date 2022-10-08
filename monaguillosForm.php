@@ -57,7 +57,10 @@ if(isset($_POST["btnAgregar"]))
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/estilo.css"/>
     <script src="js/validators.js"></script>
+    
     <title>Monaguillos</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -74,6 +77,7 @@ if(isset($_POST["btnAgregar"]))
                     </div>
                     <div class="card-header text-center h1-form">
                         <h1>Inscripción para Monaguillos</h1>
+                        <h5>Inicio de las Charlas: Sábado 22 de Octubre de 2022</h5>
                     </div>
 
                     <div class="card-body d-flex justify-content-center align-items-center flex-wrap text-center">

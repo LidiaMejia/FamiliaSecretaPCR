@@ -1,3 +1,20 @@
+<?php
+
+if($_SERVER["REQUEST_METHOD"] === "GET")
+{
+    $fromCursoLatin = false;
+
+    if(isset($_GET["latin"]))
+    {
+        if($_GET["latin"] == "1")
+        {
+            $fromCursoLatin = true;
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,6 +26,8 @@
     <script src="https://kit.fontawesome.com/b17457e142.js" crossorigin="anonymous"></script>
 
     <title>Registro Exitoso</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -31,11 +50,16 @@
                         <div>
                             <p class="text-center">Si lo deseas, puedes realizar otra inscripción:</p>
                             <div>
-                                <!-- <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button>
-                            <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr ml-3 successButtons">Formación Lectores</button>
-                            <button type="button" name="botRenovacionVotos" id="botRenovacionVotos" class="btn btn-danger btn-pcr ml-3 successButtons">Renovación de Votos Matrimoniales</button> 
+                                <!-- <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button> -->
+                            <!-- <button type="button" name="botRenovacionVotos" id="botRenovacionVotos" class="btn btn-danger btn-pcr ml-3 successButtons">Renovación de Votos Matrimoniales</button> 
                             <button type="button" name="botTarjetasFamilia" id="botTarjetasFamilia" class="btn btn-danger btn-pcr ml-3 successButtons">Tarjeta de Esperanza</button> -->
-                                <button type="button" name="botMonaguillos" id="botMonaguillos" class="btn btn-danger btn-pcr ml-3 successButtons">Coro Navideño Infantil</button>
+                                <!-- <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr ml-3 successButtons">Formación de Lectores</button> -->
+
+                                <?php if(!$fromCursoLatin): ?>
+                                    <button type="button" name="botMonaguillos" id="botMonaguillos" class="btn btn-danger btn-pcr ml-3 successButtons">Monaguillos</button>
+                                <?php else: ?>
+                                    <button type="button" name="botLatin" id="botLatin" class="btn btn-danger btn-pcr ml-3 successButtons">Curso de Latín</button>
+                                <?php endif ?>
                             </div>
                         </div>
 
@@ -43,10 +67,13 @@
                         <br>
                         <br>
                         <p id="mediap">Síguenos para seguir participando de nuestras actividades o contactarnos si tienes alguna duda</p>
-                        <a data-toggle="tooltip" data-placement="bottom" title="Facebook" class="btn-floating btn-lg" id="fb" type="button" role="button" href="https://es-la.facebook.com/parroquiacristoresucitadohn/"><i class="fab fa-facebook fa-2x"></i></a>
-                        <a data-toggle="tooltip" data-placement="bottom" title="Twitter" class="btn-floating btn-lg" id="tw" type="button" role="button" href="https://twitter.com/cristo_hn"><i class="fab fa-twitter fa-2x"></i></a>
-                        <a data-toggle="tooltip" data-placement="bottom" title="Youtube" class="btn-floating btn-lg" id="yt" type="button" role="button" href="https://www.youtube.com/channel/UCDZi5Fc70E2pPzze72SSpcw"><i class="fab fa-youtube fa-2x"></i></a>
-                        <a data-toggle="tooltip" data-placement="bottom" title="Instagram" class="btn-floating btn-lg" id="it" type="button" role="button" href="https://www.instagram.com/cristohn_resucitado/"><i class="fab fa-instagram fa-2x"></i></a>
+
+                        <a data-toggle="tooltip" data-placement="bottom" title="Whatsapp" class="btn-floating btn-lg" id="wh" type="button" role="button" href="https://wa.me/94306883" target="_blank"><i class="fa fa-whatsapp fa-2x" style="color: green;"></i></a>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Facebook" class="btn-floating btn-lg" id="fb" type="button" role="button" href="https://es-la.facebook.com/parroquiacristoresucitadohn/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Instagram" class="btn-floating btn-lg" id="it" type="button" role="button" href="https://www.instagram.com/cristohn_resucitado/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Youtube" class="btn-floating btn-lg" id="yt" type="button" role="button" href="https://www.youtube.com/channel/UCDZi5Fc70E2pPzze72SSpcw" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Twitter" class="btn-floating btn-lg" id="tw" type="button" role="button" href="https://twitter.com/cristo_hn" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Tiktok" class="btn-floating btn-lg" id="tt" type="button" role="button" href="https://www.tiktok.com/@cristoresucitado_hn" target="_blank"><i class="fab fa-tiktok fa-2x" style="color: black;"></i></a>
                     </div>
                 </div>
             </div>
@@ -59,49 +86,67 @@
 </html>
 
 <script>
-    //let botCAdultos        = document.getElementById("botCAdultos");
-    //let botLectores        = document.getElementById("botLectores");
-    //let botRenovacionVotos = document.getElementById("botRenovacionVotos");
-    //let botTarjetasFamilia = document.getElementById("botTarjetasFamilia");
-    let botMonaguillos = document.getElementById("botMonaguillos");
+    document.addEventListener('DOMContentLoaded', function(){
 
-    // //Catequesis Adultos Form
-    // botCAdultos.addEventListener("click", function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
+        //let botCAdultos        = document.getElementById("botCAdultos");
+        //let botLectores        = document.getElementById("botLectores");
+        //let botRenovacionVotos = document.getElementById("botRenovacionVotos");
+        //let botTarjetasFamilia = document.getElementById("botTarjetasFamilia");
+        let botMonaguillos = document.getElementById("botMonaguillos");
+        let botLatin       = document.getElementById("botLatin");
 
-    //     window.location = "catequesisAdultosForm.php";
-    // });
+        //Catequesis Adultos Form
+        // botCAdultos.addEventListener("click", function(e){
+        //     e.preventDefault();
+        //     e.stopPropagation();
 
-    // //Formación Lectores Form
-    // botLectores.addEventListener("click", function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
+        //     window.location = "catequesisAdultosForm.php";
+        // });
 
-    //     window.location = "formacionLectoresForm.php";
-    // });
+        //Formación Lectores Form
+        // botLectores.addEventListener("click", function(e){
+        //     e.preventDefault();
+        //     e.stopPropagation();
 
-    // //Renovación de Votos Matrimoniales
-    // botRenovacionVotos.addEventListener("click", function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
+        //     window.location = "formacionLectoresForm.php";
+        // });
 
-    //     window.location = "renovacionVotosForm.php";
-    // });
+        //Renovación de Votos Matrimoniales
+        // botRenovacionVotos.addEventListener("click", function(e){
+        //     e.preventDefault();
+        //     e.stopPropagation();
 
-    //Tarjeta de Esperanza
-    // botTarjetasFamilia.addEventListener("click", function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
+        //     window.location = "renovacionVotosForm.php";
+        // });
 
-    //     window.location = "tarjetasFamiliasForm.php";
-    // });
+        //Tarjeta de Esperanza
+        // botTarjetasFamilia.addEventListener("click", function(e){
+        //     e.preventDefault();
+        //     e.stopPropagation();
 
-    //Monaguillos
-    botMonaguillos.addEventListener("click", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+        //     window.location = "tarjetasFamiliasForm.php";
+        // });
 
-        window.location = "coroNinosForm.php";
+        //Monaguillos
+        if(botMonaguillos != null)
+        {
+            botMonaguillos.addEventListener("click", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                window.location = "monaguillosForm.php";
+            });
+        }
+
+        //Latin
+        if(botLatin != null)
+        {
+            botLatin.addEventListener("click", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                window.location = "cursoLatinForm.php";
+            });
+        }
     });
 </script>

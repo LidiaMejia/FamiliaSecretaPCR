@@ -38,7 +38,9 @@
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
 
-    <title>Inscripciones 2021 PCR</title>
+    <title>Inscripciones 2022 PCR</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>

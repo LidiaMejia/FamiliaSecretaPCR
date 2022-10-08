@@ -4,8 +4,8 @@ function initDB()
 {
     //Parámetros de conexión
     $hostname = "127.0.0.1";
-    $username = "cristore_ins";
-    $password = "38QdZiI9gprh";
+    $username = "root";//"cristore_ins";
+    $password = "r00tpass24";//"38QdZiI9gprh";
     $database = "cristore_inscripciones";
     $port     = "3306";
 
@@ -24,6 +24,26 @@ function initDB()
 }
 
 //FUNCIONES OPERATIVAS
+function getMunicipios($conexion)
+{
+    $query = "SELECT * FROM municipio";
+    $data  = $conexion->prepare($query);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $rows;
+    }
+}
+
 function checkIfCelExistsComunion($telefono, $conexion)
 {
     $query = "SELECT COUNT(*) AS total FROM comunion WHERE telefono = ?";
@@ -360,6 +380,44 @@ function insertMonaguillos($nombre_nino, $edad_nino, $nombre_madre, $telefono_ma
     $data  =  $conexion->prepare($query);
     $data->bind_param("ssssssssss", $nombre_nino, $edad_nino, $nombre_madre, $telefono_madre, $nombre_padre, $telefono_padre,
                                     $parroquia_bautismo, $fecha_bautismo, $parroquia_comunion, $fecha_comunion);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function checkIfIdentidadExistsLatin($identidad, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM latin WHERE identidad = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $identidad);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertCursoLatin($identidad, $nombre, $residencia, $nivelEducativo, $telefono, $email, $conexion)
+{
+    $query =  "INSERT INTO latin (identidad, nombre, lugar_residencia, nivel_educacion, telefono, email) VALUES (?,?,?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssssss", $identidad, $nombre, $residencia, $nivelEducativo, $telefono, $email);
     $data->execute();
 
     if($conexion->error)

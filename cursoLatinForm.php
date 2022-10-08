@@ -2,29 +2,40 @@
 
 require_once "./dao.php";
 
+if($_SERVER["REQUEST_METHOD"] === "GET")
+{
+    //Obtener Municipios para validar Número de Identidad
+    $conexion = initDB();
+
+    $munis = array();
+    $munis = getMunicipios($conexion);
+}
+
 if(isset($_POST["btnAgregar"]))
 {
-    $txtNombre = $_POST["txtNombre"];
-    $txtEdad   = $_POST["txtEdad"];
-    $txtNum    = $_POST["txtNum"];
-    $txtEmail  = $_POST["txtEmail"];
+    $txtIdentidad  = $_POST["txtIdentidad"];
+    $txtNombre     = $_POST["txtNombre"];
+    $txtResidencia = $_POST["txtResidencia"];
+    $selectEdu     = $_POST["selectEdu"];
+    $txtNum        = $_POST["txtNum"];
+    $txtEmail      = trim($_POST["txtEmail"]) == "" ? null : $_POST["txtEmail"];
 
     $conexion = initDB();
-    $count    = checkIfCelExistsConfirma($txtNum, $conexion);
+    $count    = checkIfIdentidadExistsLatin($txtIdentidad, $conexion);
 
     //Si aún no está registrado, se guardan los datos
     if($count == 0)
     {
-        $res = insertConfirma($txtNombre, $txtEdad, $txtNum, $txtEmail, $conexion);
+        $res = insertCursoLatin($txtIdentidad, $txtNombre, $txtResidencia, $selectEdu, $txtNum, $txtEmail, $conexion);
 
         //Error
         if($res == 1)
         {
-            echo "<script> alert('Ocurrió un error al ingresar la Inscripción. Por favor intente de nuevo.'); window.location='confirmaForm.php;</script>";
+            echo "<script> alert('Ocurrió un error al ingresar la Inscripción. Por favor intente de nuevo.'); window.location='cursoLatinForm.php;</script>";
         }
         else
         {
-            echo "<script>window.location='successfully.php';</script>";
+            echo "<script>window.location='successfully.php?latin=1';</script>";
         }
     }
 }
@@ -41,13 +52,13 @@ if(isset($_POST["btnAgregar"]))
     <link rel="stylesheet" href="css/estilo.css"/>
     <script src="js/validators.js"></script>
 
-    <title>Confirma</title>
+    <title>Curso de Latín</title>
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <header class="p-3 mr-3 mb-5"><a href="../" data-toggle="tooltip" data-placement="top" title="Inicio">Parroquia Cristo Resucitado<a></header>
+    <header class="p-0 m-0 pt-3 pb-3 mb-4"><a href="../" data-toggle="tooltip" data-placement="top" title="Inicio">Parroquia Cristo Resucitado<a></header>
 
     <main class="container">
         <div class="row">
@@ -55,39 +66,63 @@ if(isset($_POST["btnAgregar"]))
 
                 <!-- Card del Formulario -->
                 <div class="card shadow lg p-3 mb-5 bg-white">
+
                     <div class="card-header text-center">
                         <img src="imgs/LogoParroquia.png" class="img-logo-alone" alt="Logo de la Parroquia"/>
                     </div>
+
                     <div class="card-header text-center h1-form">
-                        <h1>Inscripción de Confirma</h1>
+                        <h1>Inscripción al Curso de Introducción al Latín</h1>
                     </div>
 
                     <div class="card-body d-flex justify-content-center align-items-center flex-wrap text-center">
                         <p>Para realizar la inscripción llene los siguientes datos:</p>
 
-                        <form action="confirmaForm.php" id="confirmaRegister" method="POST">
+                        <form action="cursoLatinForm.php" id="cursoLatinForm" method="POST">
                         
                             <div class="form-row d-flex justify-content-center align-items-center flex-wrap text-center">
 
                                 <!-- Error Cel -->
                                 <div class="col-lg-8 mb-4 text-center">
                                     <div id="alertError" class="alert alert-danger alert-dismissible fade show <?php echo ( isset($_POST) ? ( ($count == 0 ) ? 'd-none' : 'd-block'): 'd-none' ); ?>" role="alert">
-                                        Ya existe una inscripción asociada con el número de celular ingresado. Deberá ingresar otro número
+                                        Ya existe una inscripción asociada con el número de identidad ingresado. Deberá ingresar otro número.
                                     </div>
                                 </div>
 
-                                <!-- nombre -->
+                                <!-- Identidad -->
+                                <div class="col-lg-8 mb-4">
+                                    <label for="txtIdentidad">Número de Identidad (Sin guiones)</label>
+                                    <input type="tel" name="txtIdentidad" id="txtIdentidad" minlength="13" maxlength="13" placeholder="0801199100123" class="form-control" autofocus required/>
+                                    <div id="IDInvalid" class="d-none">Debe ingresar una identidad válida de 13 dígitos</div>
+                                </div>
+
+                                <!-- Nombre -->
                                 <div class="col-lg-8 mb-4">
                                     <label for="txtNombre">Nombre Completo</label>
-                                    <input type="text" name="txtNombre" id="txtNombre" minlength="2" maxlength ="200" placeholder="José Vicente Carratala Pérez" class="form-control" autofocus required>
+                                    <input type="text" name="txtNombre" id="txtNombre" minlength="2" maxlength ="100" placeholder="José Vicente Melgar Pérez" class="form-control" required>
                                     <div id="nombreInvalid" class="d-none">Debe ingresar un nombre válido. Sin espacios en blanco al iniciar o finalizar</div>
                                 </div>
 
-                                <!-- edad -->
+                                <!-- Residencia -->
                                 <div class="col-lg-8 mb-4">
-                                    <label for="txtEdad">Edad</label>
-                                    <input type="tel" name="txtEdad" id="txtEdad" minlength="1" maxlength="2" placeholder="33" class="form-control" required/>
-                                    <div id="EdadInvalid" class="d-none">Debe ingresar una edad válida</div>
+                                    <label for="txtResidencia">Lugar de Residencia (Departamento o Ciudad)</label>
+                                    <input type="text" name="txtResidencia" id="txtResidencia" minlength="4" maxlength ="255" placeholder="Tegucigalpa" class="form-control" required>
+                                    <div id="residenciaInvalid" class="d-none">Debe ingresar un lugar válido. Sin espacios en blanco al iniciar o finalizar</div>
+                                </div>
+
+                                <!-- Educación -->
+                                <div class="col-lg-8 mb-4">
+                                    <label for="selectEdu">Nivel de Educación</label>
+
+                                    <select name="selectEdu" class="form-control" required>
+                                        <option value="Ninguno" selected>Ninguno</option>
+                                        <option value="Preescolar">Preescolar</option>
+                                        <option value="Primaria">Primaria</option>
+                                        <option value="Secundaria">Secundaria</option>
+                                        <option value="Superior">Superior</option>
+                                        <option value="Maestría">Maestría</option>
+                                        <option value="Doctorado">Doctorado</option>
+                                    </select>
                                 </div>
 
                                 <!-- Número -->
@@ -100,7 +135,7 @@ if(isset($_POST["btnAgregar"]))
                                 <!-- Email -->
                                 <div class="col-lg-8 mb-4">
                                     <label for="txtEmail">Correo Electrónico</label>
-                                    <input type="email" name="txtEmail" id="txtEmail" minlength="4" maxlength="100" placeholder="tucorreo@gmail.com" class="form-control"/>
+                                    <input type="email" name="txtEmail" id="txtEmail" minlength="4" maxlength="255" placeholder="tucorreo@gmail.com" class="form-control"/>
                                     <div id="emailInvalid" class="d-none">Debe ingresar un correo válido</div>
                                 </div>
                                
@@ -112,7 +147,7 @@ if(isset($_POST["btnAgregar"]))
                     </div>
                 </div>
 
-                <!-- fin del Formulario -->
+                <!-- Fin del Formulario -->
 
             </div>
         </div>
@@ -134,14 +169,14 @@ if(isset($_POST["btnAgregar"]))
         e.preventDefault();
         e.stopPropagation();
 
-        let c = 0; //contador para errores
+        let c = 0; //Contador para errores
 
-        //para obtener los datos
+        //Para obtener los datos
+        let txtIdentidad  = document.getElementById("txtIdentidad");
+        let IDInvalid     = document.getElementById("IDInvalid");
+
         let txtNombre     = document.getElementById("txtNombre");
         let nombreInvalid = document.getElementById("nombreInvalid");
-
-        let txtEdad       = document.getElementById("txtEdad");
-        let EdadInvalid   = document.getElementById("EdadInvalid");
 
         let txtNum        = document.getElementById("txtNum");
         let celInvalid    = document.getElementById("celInvalid");
@@ -149,6 +184,19 @@ if(isset($_POST["btnAgregar"]))
         let txtEmail      = document.getElementById("txtEmail");
         let emailInvalid  = document.getElementById("emailInvalid");
 
+        //Validar Identidad
+        if(valEmptyField(txtIdentidad.value) || !valIdentidad(txtIdentidad.value, <?php echo json_encode($munis) ?>))
+        {
+            txtIdentidad.style.borderColor = "red";
+            IDInvalid.classList.remove("d-none");
+            IDInvalid.classList.add("errorSi");
+            c++;
+        }
+        else
+        {
+            txtIdentidad.style.borderColor = "#ced4da";
+            IDInvalid.classList.add("d-none");
+        }
 
         //validar Nombre
         if(valEmptyField(txtNombre.value) || !valName(txtNombre.value))
@@ -164,19 +212,18 @@ if(isset($_POST["btnAgregar"]))
             nombreInvalid.classList.add("d-none");
         }
 
-        //Validar Edad
-        if(valEmptyField(txtEdad.value) || !valEdad(txtEdad.value))
+        //validar Residencia
+        if(valEmptyField(txtResidencia.value) || !valNamePoint(txtResidencia.value))
         {
-            
-            txtEdad.style.borderColor = "red";
-            EdadInvalid.classList.remove("d-none");
-            EdadInvalid.classList.add("errorSi");
+            txtResidencia.style.borderColor = "red";
+            residenciaInvalid.classList.remove("d-none");
+            residenciaInvalid.classList.add("errorSi");
             c++;
         }
         else
         {
-            txtEdad.style.borderColor = "#ced4da";
-            EdadInvalid.classList.add("d-none");
+            txtResidencia.style.borderColor = "#ced4da";
+            residenciaInvalid.classList.add("d-none");
         }
 
         //Validar Celular

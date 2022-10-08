@@ -41,7 +41,10 @@ if(isset($_POST["btnAgregar"]))
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/estilo.css"/>
     <script src="js/validators.js"></script>
+    
     <title>Votos Matrimoniales</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>

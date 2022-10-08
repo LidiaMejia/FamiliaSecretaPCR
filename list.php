@@ -23,6 +23,8 @@ if($row == 1)
     <script src="https://kit.fontawesome.com/b17457e142.js" crossorigin="anonymous"></script>
 
     <title>Listado de Familias</title>
+    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body id="listBody">

@@ -23,8 +23,9 @@ if($lista == 1)
     <link rel="stylesheet" href="css/estilo.css"/>
     <script src="https://kit.fontawesome.com/b17457e142.js" crossorigin="anonymous"></script>
 
-
     <title>Generar Sorteo</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body id="listBody">
 
