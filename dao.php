@@ -4,8 +4,8 @@ function initDB()
 {
     //Parámetros de conexión
     $hostname = "127.0.0.1";
-    $username = "root";//"cristore_ins";
-    $password = "r00tpass24";//"38QdZiI9gprh";
+    $username = "cristore_ins";
+    $password = "38QdZiI9gprh";
     $database = "cristore_inscripciones";
     $port     = "3306";
 
