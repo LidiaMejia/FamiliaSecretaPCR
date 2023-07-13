@@ -1,16 +1,22 @@
 <?php
 
+require_once "./dao.php";
+
 if($_SERVER["REQUEST_METHOD"] === "GET")
 {
     $fromCursoLatin = false;
 
-    if(isset($_GET["latin"]))
-    {
-        if($_GET["latin"] == "1")
-        {
-            $fromCursoLatin = true;
-        }
-    }
+    // if(isset($_GET["latin"]))
+    // {
+    //     if($_GET["latin"] == "1")
+    //     {
+    //         $fromCursoLatin = true;
+    //     }
+    // }
+
+    //Obtener id ingresado
+    //$conexion = initDB();
+    //$id = getIdInscripcionRetiroCuaresma($conexion);
 }
 
 ?>
@@ -43,6 +49,8 @@ if($_SERVER["REQUEST_METHOD"] === "GET")
                     </div>
                     <div class="card-body">
                         <h2>¡GRACIAS POR REALIZAR TU INSCRIPCIÓN!</h2>
+
+                        <!-- <h4 class="alert alert-success mt-4 text-center"><b>SU ID DE INSCRIPCIÓN ES: <?php //echo $id ?> <br/> POR FAVOR GUARDAR ESTE NÚMERO YA QUE SE LE SOLICITARÁ AL INGRESAR</b></h4> -->
                     </div>
                     <div class="card-footer">
                         <br>
@@ -50,16 +58,20 @@ if($_SERVER["REQUEST_METHOD"] === "GET")
                         <div>
                             <p class="text-center">Si lo deseas, puedes realizar otra inscripción:</p>
                             <div>
-                                <!-- <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button> -->
-                            <!-- <button type="button" name="botRenovacionVotos" id="botRenovacionVotos" class="btn btn-danger btn-pcr ml-3 successButtons">Renovación de Votos Matrimoniales</button> 
-                            <button type="button" name="botTarjetasFamilia" id="botTarjetasFamilia" class="btn btn-danger btn-pcr ml-3 successButtons">Tarjeta de Esperanza</button> -->
-                                <!-- <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr ml-3 successButtons">Formación de Lectores</button> -->
+                                <!-- <button type="button" name="botComunion" id="botComunion" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Primera Comunión</button>
+                                <button type="button" name="botConfirma" id="botConfirma" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Confirma</button>
+                                <button type="button" name="botCAdultos" id="botCAdultos" class="btn btn-danger btn-pcr ml-3 successButtons">Catequesis Adultos</button>
+                                <button type="button" name="botRenovacionVotos" id="botRenovacionVotos" class="btn btn-danger btn-pcr ml-3 successButtons">Renovación de Votos Matrimoniales</button> 
+                                <button type="button" name="botTarjetasFamilia" id="botTarjetasFamilia" class="btn btn-danger btn-pcr ml-3 successButtons">Tarjeta de Esperanza</button>
+                                <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr ml-3 successButtons">Formación de Lectores</button> -->
+                                <!-- <button type="button" name="botRetiroCuaresma" id="botRetiroCuaresma" class="btn btn-danger btn-pcr ml-3 successButtons">Retiro Cuaresmal 2023</button> -->
+                                <button type="button" name="botAdoradores" id="botAdoradores" class="btn btn-danger btn-pcr ml-3 successButtons">Adoradores del Santísimo Sacramento</button>
 
-                                <?php if(!$fromCursoLatin): ?>
+                                <!-- <?php if(!$fromCursoLatin): ?>
                                     <button type="button" name="botMonaguillos" id="botMonaguillos" class="btn btn-danger btn-pcr ml-3 successButtons">Monaguillos</button>
                                 <?php else: ?>
                                     <button type="button" name="botLatin" id="botLatin" class="btn btn-danger btn-pcr ml-3 successButtons">Curso de Latín</button>
-                                <?php endif ?>
+                                <?php endif ?> -->
                             </div>
                         </div>
 
@@ -88,12 +100,32 @@ if($_SERVER["REQUEST_METHOD"] === "GET")
 <script>
     document.addEventListener('DOMContentLoaded', function(){
 
-        //let botCAdultos        = document.getElementById("botCAdultos");
-        //let botLectores        = document.getElementById("botLectores");
+        // let botComunion        = document.getElementById("botComunion");
+        // let botConfirma        = document.getElementById("botConfirma");
+        // let botCAdultos        = document.getElementById("botCAdultos");
+        // let botLectores        = document.getElementById("botLectores");
         //let botRenovacionVotos = document.getElementById("botRenovacionVotos");
         //let botTarjetasFamilia = document.getElementById("botTarjetasFamilia");
-        let botMonaguillos = document.getElementById("botMonaguillos");
-        let botLatin       = document.getElementById("botLatin");
+        //let botMonaguillos = document.getElementById("botMonaguillos");
+        //let botLatin       = document.getElementById("botLatin");
+        // let botRetiroCuaresma = document.getElementById("botRetiroCuaresma");
+        let botAdoradores = document.getElementById("botAdoradores");
+
+        //Catequesis Comunión Form
+        // botComunion.addEventListener("click", function(e){
+        //     e.preventDefault();
+        //     e.stopPropagation();
+
+        //     window.location = "comunionForm.php";
+        // });
+
+        //Catequesis Confirma Form
+        // botConfirma.addEventListener("click", function(e){
+        //     e.preventDefault();
+        //     e.stopPropagation();
+
+        //     window.location = "confirmaForm.php";
+        // });
 
         //Catequesis Adultos Form
         // botCAdultos.addEventListener("click", function(e){
@@ -128,25 +160,41 @@ if($_SERVER["REQUEST_METHOD"] === "GET")
         // });
 
         //Monaguillos
-        if(botMonaguillos != null)
-        {
-            botMonaguillos.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+        // if(botMonaguillos != null)
+        // {
+        //     botMonaguillos.addEventListener("click", function(e) {
+        //         e.preventDefault();
+        //         e.stopPropagation();
 
-                window.location = "monaguillosForm.php";
-            });
-        }
+        //         window.location = "monaguillosForm.php";
+        //     });
+        // }
 
         //Latin
-        if(botLatin != null)
-        {
-            botLatin.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+        // if(botLatin != null)
+        // {
+        //     botLatin.addEventListener("click", function(e) {
+        //         e.preventDefault();
+        //         e.stopPropagation();
 
-                window.location = "cursoLatinForm.php";
-            });
-        }
+        //         window.location = "cursoLatinForm.php";
+        //     });
+        // }
+
+        // //Curso Bilia Form
+        // botRetiroCuaresma.addEventListener("click", function(e){
+        //     e.preventDefault();
+        //     e.stopPropagation();
+
+        //     window.location = "retiroCuaresmaForm.php";
+        // });
+
+        //Adoradores del Santísimo
+        botAdoradores.addEventListener("click", function(e){
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.location = "adoradoresForm.php";
+        });
     });
 </script>

@@ -6,6 +6,7 @@ CREATE TABLE `comunion` (
   `edad` VARCHAR(15) NOT NULL,
   `telefono` VARCHAR(100) NOT NULL,
   `email` VARCHAR(200) NULL,
+  `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
 
   CREATE TABLE `confirma` (
@@ -14,6 +15,7 @@ CREATE TABLE `comunion` (
   `edad` VARCHAR(15) NOT NULL,
   `telefono` VARCHAR(100) NOT NULL,
   `email` VARCHAR(200) NULL,
+  `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
 
   CREATE TABLE `adultos` (
@@ -25,6 +27,7 @@ CREATE TABLE `comunion` (
   `bautismo` TINYINT NULL DEFAULT 0 COMMENT '1 si va a realizar el bautismo',
   `comunion` TINYINT NULL DEFAULT 0 COMMENT '1 si va a realizar la primera comunión', 
   `confirma` TINYINT NULL DEFAULT 0 COMMENT '1 si va a realizar la confirma',
+  `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
 
   CREATE TABLE `Coroadultos` (
@@ -49,6 +52,7 @@ CREATE TABLE `lectores` (
   `edad` VARCHAR(15) NOT NULL,
   `telefono` VARCHAR(100) NOT NULL,
   `email` VARCHAR(200) NULL,
+  `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
 
   CREATE TABLE `matrimonios` (
@@ -81,4 +85,37 @@ CREATE TABLE `monaguillos` (
   `fecha_bautismo` DATETIME NOT NULL,
   `parroquia_comunion` VARCHAR(100) NOT NULL,
   `fecha_comunion` DATETIME NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `latin` (
+  `id` smallint unsigned NOT NULL AUTO_INCREMENT,
+  `identidad` varchar(15) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `lugar_residencia` varchar(255) NOT NULL,
+  `nivel_educacion` varchar(45) NOT NULL,
+  `telefono` varchar(45) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`));
+
+  CREATE TABLE `retiroCuaresma` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `identidad` varchar(15) NOT NULL,
+  `nombre` VARCHAR(100) NOT NULL,
+  `telefono` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(200) NULL,
+  `parroquia` VARCHAR(255) NOT NULL,
+  `sector` VARCHAR(255) NOT NULL,
+  `movimiento` VARCHAR(255) NOT NULL,
+  `placa_vehiculo` VARCHAR(8) NOT NULL,
+  `marca_vehiculo` VARCHAR(55) NOT NULL,
+  `color_vehiculo` VARCHAR(55) NOT NULL,
+  `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`));
+
+  CREATE TABLE `adoradores` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NOT NULL,
+  `telefono` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(200) NULL,
+  `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));

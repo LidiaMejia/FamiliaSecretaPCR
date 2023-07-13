@@ -7,6 +7,7 @@ var namePointRegex    = /^[a-zA-ZÀ-ÿ\ñ\Ñ\'\.]{1,}(\[a-zA-ZÀ-ÿ\ñ\Ñ\ ])*(\
 var celRegex          = /^(\d)(?!\1+$)\d{7}$/; //12345678
 var emailRegex        = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 var edadRegex         = /^[1-9]{1}([0-9]{1})?/;
+var placaVehiculoRegex = /^[a-zA-Z]{3}[1-9]{3,4}$/;
 var alfanumericoRegex = /^[a-zA-ZÀ-ÿ\ñ\Ñ1-9 ]{2,50}$/;
 var completeRegex     = /^[a-zA-ZÀ-ÿ\ñ\Ñ0-9\.\,\"\'\;\:\-\¡\!\¿\?\(\) ]{2,342}$/;
 
@@ -77,6 +78,11 @@ function valEmail(email)
 function valEdad(edad)
 {
     return (edadRegex.test(edad));
+}
+
+function valPlacaVehiculo(placa)
+{
+    return (placaVehiculoRegex.test(placa));
 }
 
 function valNamePoint(text)

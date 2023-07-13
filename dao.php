@@ -430,6 +430,102 @@ function insertCursoLatin($identidad, $nombre, $residencia, $nivelEducativo, $te
     }
 }
 
+function checkIfIdentidadExistsRetiroCuaresma($identidad, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM retiroCuaresma WHERE identidad = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $identidad);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertRetiroCuaresma($txtIdentidad, $txtNombre, $txtNum, $txtEmail, $txtParroquia, $txtSector, $txtMovimiento, $txtPlaca, $txtMarca, $txtColor, $conexion)
+{
+    $query =  "INSERT INTO retiroCuaresma (identidad, nombre, telefono, email, parroquia, sector, movimiento, placa_vehiculo, marca_vehiculo, color_vehiculo) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssssssssss", $txtIdentidad, $txtNombre, $txtNum, $txtEmail, $txtParroquia, $txtSector, $txtMovimiento, $txtPlaca, $txtMarca, $txtColor);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function getIdInscripcionRetiroCuaresma($conexion)
+{
+    $query = "SELECT id FROM retiroCuaresma ORDER BY id DESC LIMIT 1";
+    $data  = $conexion->prepare($query);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return -1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertAdoradores($nombre, $telefono, $email, $conexion)
+{
+    $query =  "INSERT INTO adoradores (nombre, telefono, email) VALUES (?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("sss", $nombre, $telefono, $email);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function checkIfCelExistsAdoradores($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM adoradores WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
 // function getFamilias($conexion)
 // {
 //     $query  = "SELECT * FROM familias;";
