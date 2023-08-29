@@ -65,7 +65,10 @@ if($_SERVER["REQUEST_METHOD"] === "GET")
                                 <button type="button" name="botTarjetasFamilia" id="botTarjetasFamilia" class="btn btn-danger btn-pcr ml-3 successButtons">Tarjeta de Esperanza</button>
                                 <button type="button" name="botLectores" id="botLectores" class="btn btn-danger btn-pcr ml-3 successButtons">Formación de Lectores</button> -->
                                 <!-- <button type="button" name="botRetiroCuaresma" id="botRetiroCuaresma" class="btn btn-danger btn-pcr ml-3 successButtons">Retiro Cuaresmal 2023</button> -->
-                                <button type="button" name="botAdoradores" id="botAdoradores" class="btn btn-danger btn-pcr ml-3 successButtons">Adoradores del Santísimo Sacramento</button>
+                                <!-- <button type="button" name="botAdoradores" id="botAdoradores" class="btn btn-danger btn-pcr ml-3 successButtons">Adoradores del Santísimo Sacramento</button> -->
+                                <!-- <button type="button" name="botGrupoOracionInfantil" id="botGrupoOracionInfantil" class="btn btn-danger btn-pcr ml-3 successButtons">Grupos de Oración Infantil</button> -->
+                                <button type="button" name="botMadrugadores" id="botMadrugadores" class="btn btn-danger btn-pcr ml-3 successButtons">Grupo Madrugadores</button>
+                                <button type="button" name="botCursoApocalipsis" id="botCursoApocalipsis" class="btn btn-danger btn-pcr ml-3 successButtons">Curso Apocalipsis</button>
 
                                 <!-- <?php if(!$fromCursoLatin): ?>
                                     <button type="button" name="botMonaguillos" id="botMonaguillos" class="btn btn-danger btn-pcr ml-3 successButtons">Monaguillos</button>
@@ -109,7 +112,8 @@ if($_SERVER["REQUEST_METHOD"] === "GET")
         //let botMonaguillos = document.getElementById("botMonaguillos");
         //let botLatin       = document.getElementById("botLatin");
         // let botRetiroCuaresma = document.getElementById("botRetiroCuaresma");
-        let botAdoradores = document.getElementById("botAdoradores");
+        let botMadrugadores = document.getElementById("botMadrugadores");
+        let botCursoApocalipsis = document.getElementById("botCursoApocalipsis");
 
         //Catequesis Comunión Form
         // botComunion.addEventListener("click", function(e){
@@ -189,12 +193,18 @@ if($_SERVER["REQUEST_METHOD"] === "GET")
         //     window.location = "retiroCuaresmaForm.php";
         // });
 
-        //Adoradores del Santísimo
-        botAdoradores.addEventListener("click", function(e){
+        botMadrugadores.addEventListener("click", function(e){
             e.preventDefault();
             e.stopPropagation();
 
-            window.location = "adoradoresForm.php";
+            window.location = "losmadrugadores.php";
+        });
+
+        botCursoApocalipsis.addEventListener("click", function(e){
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.location = "cursoApocalipsisForm.php";
         });
     });
 </script>

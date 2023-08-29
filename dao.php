@@ -526,6 +526,124 @@ function checkIfCelExistsAdoradores($telefono, $conexion)
     }
 }
 
+function checkIfGrupoOracionInfantilExists($nombre_nino, $nombre_madre, $nombre_padre, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM grupoOracionInfantil WHERE nombre_nino = ? AND nombre_madre = ? AND nombre_padre = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("sss", $nombre_nino, $nombre_madre, $nombre_padre);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertgrupoOracionInfantil($nombre_nino, $edad_nino, $nombre_madre, $telefono_madre, $nombre_padre, $telefono_padre,
+                                    $bautismo, $comunion, $conexion)
+{
+    $query =  "INSERT INTO grupoOracionInfantil (nombre_nino, edad_nino, nombre_madre, telefono_madre, nombre_padre, telefono_padre,
+                                                 bautismo, comunion)
+                VALUES (?,?,?,?,?,?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("ssssssss", $nombre_nino, $edad_nino, $nombre_madre, $telefono_madre, $nombre_padre, $telefono_padre,
+                                  $bautismo, $comunion);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function insertMadrugadores($nombre, $telefono, $email, $conexion)
+{
+    $query =  "INSERT INTO madrugadores (nombre, telefono, email) VALUES (?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("sss", $nombre, $telefono, $email);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function checkIfCelExistsMadrugadores($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM madrugadores WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
+function insertCursoApocalipsis($nombre, $telefono, $email, $conexion)
+{
+    $query =  "INSERT INTO cursoApocalipsis (nombre, telefono, email) VALUES (?,?,?)";
+    $data  =  $conexion->prepare($query);
+    $data->bind_param("sss", $nombre, $telefono, $email);
+    $data->execute();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+function checkIfCelExistsCursoApocalipsis($telefono, $conexion)
+{
+    $query = "SELECT COUNT(*) AS total FROM cursoApocalipsis WHERE telefono = ?";
+    $data  = $conexion->prepare($query);
+    $data->bind_param("s", $telefono);
+    $data->execute();
+    $result = $data->get_result();
+
+    if($conexion->error)
+    {
+        return 1;
+    }
+    else
+    {
+        $count = mysqli_fetch_array($result);
+
+        $result->free(); //Liberar la memoria asociada con el resultado
+        return $count[0];
+    }
+}
+
 // function getFamilias($conexion)
 // {
 //     $query  = "SELECT * FROM familias;";

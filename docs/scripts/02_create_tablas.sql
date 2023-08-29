@@ -119,3 +119,32 @@ CREATE TABLE `latin` (
   `email` VARCHAR(200) NULL,
   `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
+
+CREATE TABLE `grupoOracionInfantil` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre_nino` VARCHAR(100) NOT NULL,
+  `edad_nino` CHAR(3) NOT NULL,
+  `nombre_madre` VARCHAR(100) NOT NULL,
+  `telefono_madre` VARCHAR(10) NOT NULL,
+  `nombre_padre` VARCHAR(100) NOT NULL,
+  `telefono_padre` VARCHAR(100) NOT NULL,
+  `bautismo` TINYINT NULL DEFAULT 0 COMMENT '1 si el niño ya realizó el bautismo',
+  `comunion` TINYINT NULL DEFAULT 0 COMMENT '1 si el niño ya realizó la primera comunión', 
+  `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `madrugadores` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NOT NULL,
+  `telefono` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(200) NULL,
+  `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `cursoApocalipsis` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NOT NULL,
+  `telefono` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(200) NULL,
+  `fecha_inscripcion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`));
